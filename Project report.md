@@ -1,5 +1,6 @@
 # PHBS_MLF_2019_Project
-##Catching the mouse_identify fraudulent credit card transactions
+## Catching the mouse_identify fraudulent credit card transactions
+
 Yuchuan Xu (1801212958)
 Yang Cao (1801212825)
 Alimujiang (1801212778)
@@ -7,27 +8,44 @@ Bowen Chen (1801212827)
 
 
 **1.	Research background**
+
 In recent years, there have been a lot of credit card swiping incidents. According to research and statistics from Nielsen Consulting, in 2017, global credit card fraud losses amounted to 22.8 billion US dollars and are expected to continue to grow [1]. Although credit card swiping transactions account for only a very small portion of all credit card transactions, once it occurs, it will cause unnecessary losses to the credit card holder, and sometimes the amount of the loss is huge.
 Specifically, credit card swiping refers to illegal or criminal acts in which criminals copy other people ’s credit cards in various illegal forms, thereby stealing cardholder ’s funds. In real life, the main manifestation is that the cardholder’s fund is stolen by an unfamiliar third party without the loss of the credit card and the payment password is not informed to others.
 
+------------
+
+
 
 **2.	Motivation**
+
 Since credit card swiping would cause financial losses to the holders and affect the efficiency of financial institutions, it is necessary to design an automatic fraud detection system for high-precision fraud detection. This project hopes to use a set of credit card consumption data sets to train a classifier to distinguish whether the user's credit card use records are fraudulent information, which could help the credit card company effectively identify fraudulent credit card transactions.
 
+------------
+
+
+
 **3.	Data description**
-1)	outline
+
+1)outline
+
 The data set used in this project is a group of European cardholders ’credit card transaction data in September 2013 (which has been vectorized). This data set contains transactions that occurred within two days, a total of 284,807, of which 492 belong Piracy transactions, the rest belong to normal transactions, the data set is very unbalanced, piracy transactions only account for 0.172% of all transactions. The data set contains 31 descriptive indicators. The introduction and descriptive statistics of the indicators are shown in the following section.
 
-2)	Variables
-The data set contains a total of 31 indicators. The indicator Class is the response variable. If the transaction is a fraudulent transaction, the value is 1. If the transaction is a normal transaction, the value is 0. The indicator Time describes the time when the transaction occurs. Specifically, it is the interval between the time of each transaction and the time of the first transaction; the indicator Amount is the amount of the transaction; the indicators v1, v2-v28 are obtained through PCA. Due to the privacy issue, the meaning of v1-v28 are not available.
-###  Descriptive statistics of primary indicators
-![](http://m.qpic.cn/psc?/V11zaUPV2EE2Gc/8YUQ4vKPKp.vxIKbDZcdtkyCk7SnMSoP0FRtKWMKmlDMQDjRUWrmu8Fu2MuH3Hxz9.ceAS5idFQznWnW7B1jdg!!/mnull&bo=6APVAgAAAAADBx4!&rf=photolist&t=5)
+2)Variables
 
+The data set contains a total of 31 indicators. The indicator Class is the response variable. If the transaction is a fraudulent transaction, the value is 1. If the transaction is a normal transaction, the value is 0. The indicator Time describes the time when the transaction occurs. Specifically, it is the interval between the time of each transaction and the time of the first transaction; the indicator Amount is the amount of the transaction; the indicators v1, v2-v28 are obtained through PCA. Due to the privacy issue, the meaning of v1-v28 are not available.
+
+<center> Descriptive statistics of primary indicators </center>
+<div align=center>![](http://m.qpic.cn/psc?/V11zaUPV2EE2Gc/8YUQ4vKPKp.vxIKbDZcdtkyCk7SnMSoP0FRtKWMKmlDMQDjRUWrmu8Fu2MuH3Hxz9.ceAS5idFQznWnW7B1jdg!!/mnull&bo=6APVAgAAAAADBx4!&rf=photolist&t=5)
+
+
+------------
+
+<div align=left>
 **4.	Feature selection**
 **1)	Data cleaning**
 We check the missing data by calling the Missingno tool in Python. As shown in the following figure, the data is very complete and does not require preprocessing operations such as data filling.
 ![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/yCLjTthScCcjc0qcPSGYBgdSPT36VG3HpWmcbhuXi16AgrNuCoTJr25m0U.ty6kmlPQ3xzQesdAu.Ney6*m5igYvWX9eqq741WcjbEzfuEo!/b&bo=BAb2AgAAAAARF9Y!&rf=viewer_4&t=5)
-Data loss
+<center> Data loss </center>
 
 **2)	Data scaling**
 The unit of the indicator Time is seconds, which causes the value of the indicator to be much larger than other indicators, which is not convenient for subsequent analysis with other indicators, so it is converted into units of hours, corresponding to the time of day. The magnitude of other indicators are relatively close and no additional processing is required.
@@ -38,10 +56,10 @@ In order to better distinguish the features between positive and negative sample
 **4)	Correlation between positive and negative sample variables**
 In the incident of the credit card swiping, the correlation between some variables is more obvious. The variables V1, V2, V3, V4, V5, V6, V7, V9, V10, V11, V12, V14, V16, V17, V18, and V19 showed certain patterns in the credit card swiping samples.
 ![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/yCLjTthScCcjc0qcPSGYBq3A5ZTXhJwGHUrySywy2PTfHO4Hy*142R0zmlOKZoqwAvQxIDKArL4e17Nvm*n0BG8VZmyDZ12M6Nyo5EX0rMs!/b&bo=gALgAQAAAAARF0M!&rf=viewer_4&t=5)
-Description of the correlation of variables of swiping sample
+<center>Description of the correlation of variables of swiping sample</center>
 
 ![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/yCLjTthScCcjc0qcPSGYBt0JAuHHLz98RwLw0L0bV6drdXjo3Wenn8YMWUSHjkfZkUv7gcr77QHAJ.womya*t1x1g5HcsTDmEzRe.qkioAs!/b&bo=gALgAQAAAAARF0M!&rf=viewer_4&t=5)
-Description of the correlation of variables of swiping sample
+<center> Description of the correlation of variables of swiping sample </center>
 
 **5)	Positive and negative sample transaction amount**
 The amount of credit card swiping transaction appears to be scattered and small compared with the amount of credit card normal transaction.
@@ -52,46 +70,53 @@ Amount of transaction of positive and negative samples
 As the normal transaction time distribution diagram shows, between there is a high-frequency period of credit card consumption during 9 am and 11 pm every day.
 As the time distribution of fraudulent transactions show, the highest number of credit card swiping transactions reached 43 at 11 am on the first day, followed by second number at 2 am, indicating that credit card thieves did not want to attract the attention of credit card owners and prefer to choose the time when the credit card owner sleeps or the frequency of consumption is high.
 ![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/yCLjTthScCcjc0qcPSGYBpHjFeOfW8W*8S92X1tuU4CoxUe05sMBPTUVvCWDzfmMvPsEww.CBdV0ZhseIB8Mn1VmItEZKd42cEps5h8PNt8!/b&bo=DQX1AgAAAAARF98!&rf=viewer_4&t=5)
-Distribution of transaction time of credit card swiping sample
+<center>Distribution of transaction time of credit card swiping sample</center>
+
 
 **7)	Relationship between positive and negative sample transaction amount and transaction time**
 It can be seen from the figure that in the sample of credit card swiping, the outliers occurred during the period when the customer used the credit card to spend at a lower frequency. At the same time, the maximum amount of credit card swiping is only 2,125.87 US dollars.
 ![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/yCLjTthScCcjc0qcPSGYBmsuzUMfNPIv7QCzvaLWE7NAwCaYDOCUZZnbn3AO245qNpdrtODNThd1tsPhPlaRNvlzlyNvYvIhoyEIrIUJM9c!/b&bo=2wQdAgAAAAARF.A!&rf=viewer_4&t=5)
-Relation between amount and time of fraudulent transaction
+<center>Relation between amount and time of fraudulent transaction</center>
 
 **8)	Distribution of different variables on positive and negative samples**
 The following figure lists some of the distributions of different variables in credit card swiping and normal samples. We will choose variables that have obvious differences in the distribution of different credit card states, excluding variables that distinguish poorly between positive and negative samples, such as V8, V13 and V24, after processing, the feature variable was reduced from 31 to 18.
 
 ![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/yCLjTthScCcjc0qcPSGYBnmdpSIQCHI3SMzT2uh4t5N5jY8r8e7eh47obUPB*6CI3NwnI3y*dq7rOeLDM974Flr*6qGdB0nSUNTIC8zPH2U!/b&bo=igMFAQAAAAARF60!&rf=viewer_4&t=5)
-Distribution histogram of characteristic variable v1
+<center>Distribution histogram of characteristic variable v1</center>
 
 **9)	Data dimensionality reduction**
 Next, we perform principal component analysis on the data and reduce the 28-dimensional data to a 2-dimensional space. The data distribution after dimensionality reduction is shown in the figure below, where red zone represents samples of normal transactions and green zone represents samples of fraudulent transactions.
 
 ![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/yCLjTthScCcjc0qcPSGYBg.gtOIc2isU6R8*YX*hWTRnHagPMKSpUXyvlat3rBs.71XGZrsq.*0.*maSwzgDIASiFvmqIpdnh0ys.CVQaXY!/b&bo=gALgAQAAAAARF0M!&rf=viewer_4&t=5)
-Initial visual effect of PCA
+<center>Initial visual effect of PCA</center>
 
 Due to the imbalance of the data set, there are 280,000 pieces of non-swiping data, which is a large amount of data, and there are less than 500 pieces of credit card swiping transaction data. Therefore, we randomly select 1,000 non-swiping data, and then perform principal component analysis to improve the discrimination effect.
 
 ![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/yCLjTthScCcjc0qcPSGYBn9sT2.eGnK0Me9oj3*OAEjXKfOOHgY.NBFwkK74C7U.gFnRXnIZVMhSNBHji*eJa2nTcq4p25NgRUIC7qeRMnA!/b&bo=gALgAQAAAAADF1E!&rf=viewer_4&t=5)
-Visual effect of PCA after subsampled
+<center>Visual effect of PCA after subsampled</center>
 
 Then we try to use a better nonlinear dimensionality reduction method T-SNE, the results show that the distinction between positive and negative samples is more obvious.
 
 ![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/yCLjTthScCcjc0qcPSGYBuyJSgirV5pGX9*xEC90sUZtUGPXEZtiKaIbl7alpP.TKJYuM2QG9MiaNDhYK*qZdDbCr6nQzLQ0KPIR4mpy82U!/b&bo=DgNJAgAAAAARF2Y!&rf=viewer_4&t=5)
-Visual effect of TSNE
+<center>Visual effect of TSNE</center>
 
 Finally, through 3D display, we can a better visual effect.
+
+------------
+
+
 
 **5.	Rat Clip -prediction of credit card fraud based on SMOTE and logistic regressionLogistic Regression**
 
 Logistic regression is the appropriate regression analysis to conduct when the dependent variable is dichotomous (binary).  Like all regression analyses, the logistic regression is a predictive analysis.  Logistic regression is used to describe data and to explain the relationship between one dependent binary variable and one or more nominal, ordinal, interval or ratio-level independent variables.
 The sigmoid function, also called the sigmoidal curve (von Seggern 2007, p. 148) or logistic function, is the function
-![](http://m.qpic.cn/psc?/V11zaUPV2EE2Gc/8YUQ4vKPKp.vxIKbDZcdtoE.mqkpDrnr8oVv0FrwTO7L59FzliSEA8BRnmbvbi72oZq4aVjGn5gbRrUlJRYdDw!!/mnull&bo=kQAxAAAAAAADB4I!&rf=photolist&t=5)
+<div align=center>![](http://m.qpic.cn/psc?/V11zaUPV2EE2Gc/8YUQ4vKPKp.vxIKbDZcdtoE.mqkpDrnr8oVv0FrwTO7L59FzliSEA8BRnmbvbi72oZq4aVjGn5gbRrUlJRYdDw!!/mnull&bo=kQAxAAAAAAADB4I!&rf=photolist&t=5)
+
 Function image of Sigmoid function is:
 ![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/8YUQ4vKPKp.vxIKbDZcdtmPdxfHJAHUjcTegHGqLXmsYw6sOj2WUvky3K4a018zKKCwYwwADLsLyMV1b6VS4vQ!!/mnull&bo=5gFKAQAAAAARB5w!&rf=photolist&t=5)
 Sigmoid function
 
+<div align=left>
 A sigmoid function is a type of activation function, and more specifically defined as a squashing function. Squashing functions limit the output to a range between 0 and 1, making these functions useful in the prediction of probabilities.
 Sigmoidal functions are frequently used in machine learning, specifically in the testing of artificial neural networks, as a way of understanding the output of a node or “neuron.” For example, a neural network may attempt to find a desired solution given a set of inputs. A sigmoidal function will determine the output and that output will be used as the input for the following node. This process will repeat until the solution to the original problem is found.
 Based on the sigmoid function, the assumed function form of the logic function is as follows:
@@ -137,8 +162,9 @@ According to the above definitions of four types of situations, relevant model e
 2)	Precision：TP / (TP + FP);
 3)	Recall：TP / (TP + FN);
 The calculation and meaning of Precision and Recall can also be intuitively understood through the following picture.
-![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/8YUQ4vKPKp.vxIKbDZcdtiIu6TSvfZe9UjCdZ9DxtF2qX8l8uhkKVDYxJw.jtqv6kqDbpccAqp3oLsuJf*wvdQ!!/mnull&bo=pgIUAgAAAAARB4I!&rf=photolist&t=5)
+<div align=center>![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/8YUQ4vKPKp.vxIKbDZcdtiIu6TSvfZe9UjCdZ9DxtF2qX8l8uhkKVDYxJw.jtqv6kqDbpccAqp3oLsuJf*wvdQ!!/mnull&bo=pgIUAgAAAAARB4I!&rf=photolist&t=5)
 Schematic diagram of model evaluation index calculation
+<div align=left>
 
 Different indicators have different emphases, and Accuracy is the most commonly used indicator, which can generally measure the performance of a prediction. Precision is concerned about the correct proportion of positive samples predicted by the model, that is, the accuracy of the model prediction. Recall pays attention to the proportion of positive samples (TP) predicted by the model in all positive samples, that is, whether the model can find all positive samples and find them incomplete.
 The focus is different in different situations. In the scenario of recognizing spam, it may be biased towards Precision, because we don’t want many normal emails to be killed by mistake, which will cause serious problems. In the field of financial risk control, most of them prefer Recall. We hope that the system can screen out all risky behaviors or users, and then hand it over to human identification to omit one that may cause disastrous consequences.Two other commonly used indicators to evaluate the pros and cons of a Binary Classifier are ROC (Receiver Operating Characteristic) curve and AUC (Area Under Curve).
@@ -149,8 +175,9 @@ FPR(False Postive Rate): FP/(FP+TN)，represents the proportion of actual negati
 For the logistic regression classifier used in this section, which gives the probability of being a positive class for each instance, then by setting a threshold such as 0.6, the probability is greater than or equal to 0.6 for the positive class, and less than 0.6 for the negative class. Correspondingly, a set of (FPR, TPR) can be calculated and corresponding coordinate points can be obtained in the plane. As the threshold value gradually decreases, more and more instances are classified as positive classes, but these positive classes are also doped with true negative instances, that is, TPR and FPR will increase at the same time. When the threshold is the largest, the corresponding coordinate point is (0,0), and when the threshold is the smallest, the corresponding coordinate point is (1,1).
 As shown in the following figure, the solid line in the figure is the ROC curve, and each point on the line corresponds to a threshold.
 
-![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/8YUQ4vKPKp.vxIKbDZcdtkaBrvN5ZD3C6o8p0WwtXyQOsl097nNKrLyDZllnU*d*v7WkC8N4VYsJ7QaAaZyMog!!/mnull&bo=awFlAQAAAAARBz4!&rf=photolist&t=5)
+<div align=center>![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/8YUQ4vKPKp.vxIKbDZcdtkaBrvN5ZD3C6o8p0WwtXyQOsl097nNKrLyDZllnU*d*v7WkC8N4VYsJ7QaAaZyMog!!/mnull&bo=awFlAQAAAAARBz4!&rf=photolist&t=5)
 ROC curve
+<div align=left>
 
 The ideal goal of the model is TPR = 1, FPR = 0, which is the (0,1) point in the figure, so the closer the ROC curve is to the (0,1) point, the better it deviates from the 45-degree diagonal.
 AUC (Area under Curve) is the area under the ROC curve between 0.1 and 1. In terms of specific meaning, the AUC value is a probability value. When a positive sample and a negative sample are randomly selected, the probability that the current classification algorithm ranks this positive sample in front of the negative sample according to the calculated Score value is the AUC value. The current classification algorithm is more likely to rank positive samples in front of negative samples, so that it can better classify.
@@ -181,22 +208,29 @@ The effect index of the model can be calculated through the confusion matrix:
 After solving the problem of sample imbalance through SMOTE, ROC-AUC indicators, Recall (recall rate) and Precision (precision rate) have been greatly improved, and the model performs very well.
 As mentioned earlier, thresholds also have an important effect on the results, so let's take a look at how much different thresholds will affect the results. The horizontal axis in the figure below is the Recall recall rate, and the vertical axis is the Precision recall rate. Different colored lines correspond to different thresholds. It can be seen that as the threshold decreases, the recall rate gradually increases, the precision rate gradually decreases, and the model's misjudgment also increases.
 
-![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/8YUQ4vKPKp.vxIKbDZcdtnxcm1INVA0liWIkZBlR98.eXa216W5kgbNzcdEeVgRoWP7A*RZHIbl6cv4j1*HAKg!!/mnull&bo=sAS8AgAAAAARBzo!&rf=photolist&t=5)
+<div align=center>![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/8YUQ4vKPKp.vxIKbDZcdtnxcm1INVA0liWIkZBlR98.eXa216W5kgbNzcdEeVgRoWP7A*RZHIbl6cv4j1*HAKg!!/mnull&bo=sAS8AgAAAAARBzo!&rf=photolist&t=5)
 Precision-Recall Curve
-
+<div align=left>
 This phenomenon is very significant. In actual business, if the threshold is set high, the attack on theft may be too small. If the setting is too low, it may indeed be possible to find more cardholders whose credit cards have been stolen, but as the number of misjudgments increases, not only will the workload of the post-loan team increase, but it will also reduce the misjudgment of credit card theft Brush customer's consumption experience, which leads to a decrease in customer satisfaction. In reality, the company's choice of threshold should be a point where the marginal profit and marginal cost of the business can be balanced.
+
+
+------------
+
 
 **6.	Rat Poison-AutoEncoder combined with Logistic regression**
 (1)	Introduction to AutoEncoder
 AutoEncoder automatically encodes the input training set of the neural network as an unlabeled data set, so it is an unsupervised learning algorithm. It was proposed by the scientist Rumelhart in 1986 and is an important node in the development of neural networks. It is mainly used for complex high-level Dimensional data analysis. Autoencoder uses BP back-propagation algorithm to back-test to make the target output equal to the input value.
 Autoencoder is a multi-layer neural network with the same meaning as the input layer and the output layer. The input layer and the output layer have the same number of nodes. The number of neurons in the two layers is exactly the same, but the number of neurons in the hidden layer must be less than the output. Floor. This model is often used for dimensionality reduction or feature learning, the structure is as follows:
-![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/8YUQ4vKPKp.vxIKbDZcdtp6yWxZqy8kxyRNqqzF7phlvgMf1YKpuvcEt3U**4IUeovkJNY9euzKSUdpqjkpd4g!!/mnull&bo=agGOAQAAAAARB9Q!&rf=photolist&t=5)
+<div align=center>![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/8YUQ4vKPKp.vxIKbDZcdtp6yWxZqy8kxyRNqqzF7phlvgMf1YKpuvcEt3U**4IUeovkJNY9euzKSUdpqjkpd4g!!/mnull&bo=agGOAQAAAAARB9Q!&rf=photolist&t=5)
 A simple self-encoder structure
+<div align=left>
+
 We can understand the self-encoder through an example: the chess master observes the board for 5 seconds and can remember the positions of all the pieces, which is impossible for ordinary people. However, the placement of the pieces must be the actual game (that is, there are rules for the pieces, just like the second set of numbers), and the randomly placed chessboards can't work (like the first set of numbers). Chess masters are not superior to ordinary people in memory, but are experienced and very good at recognizing chess patterns, so as to efficiently remember chess games.
 Similar to the player's memory model, an autoencoder receives input, converts it into an efficient internal representation, and then outputs the analog of the input data. Self-encoders usually consist of two parts: Encoder (also known as recognition network) converts the input into an internal representation, and Decoder (also known as generation network) converts the internal representation into an output.
 
-![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/8YUQ4vKPKp.vxIKbDZcdtriQPd4wo9ZNtHVDK*4DYegm0EVP0Gg7OcgdmEhXQZQoKM*1SpaWkyAkwQVDe0jHxA!!/mnull&bo=DQPaAQAAAAARB.U!&rf=photolist&t=5)
+<div align=center>![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/8YUQ4vKPKp.vxIKbDZcdtriQPd4wo9ZNtHVDK*4DYegm0EVP0Gg7OcgdmEhXQZQoKM*1SpaWkyAkwQVDe0jHxA!!/mnull&bo=DQPaAQAAAAARB.U!&rf=photolist&t=5)
 Chess master's memory mode (left) and a simple self-encoder
+<div align=left>
 
 As shown in the figure above, the structure of the autoencoder is similar to the multilayer perceptron, except that the number of input neurons and output neurons are equal. In the example above, the autoencoder has only one hidden layer (Encoder) containing two neurons, and the output (Decoder) containing three neurons. The output is trying to reconstruct the input, and the loss function is the reconstruction loss. Since the dimension of the internal representation (that is, the output of the hidden layer) is smaller than the input data (2D replaces the original 3D), this is called an incomplete self-encoder.
 
@@ -204,8 +238,9 @@ As shown in the figure above, the structure of the autoencoder is similar to the
 AutoEncoder is a neural network that is trained to copy the input to the output as much as possible. The neural network strives to make the output consistent with the input content. What it learns is an "identity function" where the input is equal to the output.
 As shown in the figure below, AutoEncoder is mainly composed of three parts: Input Layer, Hidden Layer and Output Layer. The network structure is relatively simple. Among them, there is a hidden layer h inside the autoencoder, which can generate codes to represent the input. The network can be viewed as consisting of two parts: an encoder h = f (x) and a decoder for generating reconstruction r = g (h). Finally, make x approximately equal to g (f (x)). The network can be designed so that x = g (f (x)).
 
-![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/8YUQ4vKPKp.vxIKbDZcdtuJbz7cfJ*ILmWHlEclKpPOeQKzgsWGy.yU4bqY8GneYxsQcxLV7sDjKxwFirYxPRw!!/mnull&bo=8ALqAAAAAAARByg!&rf=photolist&t=5)
+<div align=center>![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/8YUQ4vKPKp.vxIKbDZcdtuJbz7cfJ*ILmWHlEclKpPOeQKzgsWGy.yU4bqY8GneYxsQcxLV7sDjKxwFirYxPRw!!/mnull&bo=8ALqAAAAAAARByg!&rf=photolist&t=5)
 Self-encoder structure
+<div align=left>
 
 The core concept of the automatic encoder algorithm is: by establishing the Encode and Decode processes (actually encoder and decoder) in the hidden layer, the input and output are getting closer and closer, and the input data is encoded and decoded by the hidden layer, and the output a result consistent with the input data.
 Although this concept is theoretically feasible, the actual operation will not be so ideal. In order to allow the automatic encoder to learn the useful features of the data, it cannot be designed as an encoder with 100% copy input (theoretically, it cannot be done because the number of layers is different), so some constraints must be specified in the hidden layer. The Autoencoder can only be copied approximately.
@@ -215,9 +250,14 @@ The common constraints of this model are as follows:
 	Because this is an unsupervised learning model, the data is unlabeled, so the source of the error is the difference between the reconstruction and the input.
 The Autoencoder can be regarded as compressing the data, from the original "n-dimensional" to "m-dimensional", where m is the number of hidden layer neurons. Then, when necessary, recover the data with the least loss.
 	 AutoEncoder Algorithm Process
+	 
 1) The Autoencoder automatic encoding network is to restore the compressed data, that is to learn a set of h_(W,b) (x)≈x, which is the parameter to be learned by the algorithm.
+
 2) Restoring the data should make the loss as small as possible. The objective function is specified as:
-J(W,b)=(∑▒〖(x^(-x))〗^2 )/m
+
+<div align=center>![](http://m.qpic.cn/psc?/V11zaUPV2EE2Gc/8YUQ4vKPKp.vxIKbDZcdtrNnElSWqvOun2FgC7rfwrownIf7Po*x40U*I*cRSsHOU.aQVX3XxraMhGWN0a98ZA!!/mnull&bo=lgA6AAAAAAADB44!&rf=photolist&t=5)
+<div align=left>
+
 In order to determine the initial data of the weights in the medium weight matrix, the autoencoder needs a BP neural network to do a pre-training to minimize the error between the input and output values. At the beginning, a process of compressing and extracting features will be introduced. The compression of the input data (limiting the number of hidden layer neurons) is re-encoded, and the low-dimensional vector data is used to replace the high-dimensional input data, so that the compressed low-dimensional vector can retain the input data To help restore the original data later. Re-encode the input data with a weight matrix, then enter the activation function, and then use WT to decode, so that h (x) ≈x. The Encode and Decode processes in the hidden layer use the same parameter matrix. Through these constraints, the number of parameters can be reduced and the model complexity can be reduced.
 The prerequisite for data compression is that there is some redundant information in the data, but we know that there is some redundant information in the data such as sound and images in the display. The self-encoding network continuously learns and Optimized to identify redundancy and remove redundancy.
 (4)	Considerations for using AutoEncoder
