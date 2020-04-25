@@ -1,5 +1,5 @@
 # PHBS_MLF_2019_Project
-Catching the mouse_identify fraudulent credit card transactions
+##Catching the mouse_identify fraudulent credit card transactions
 Yuchuan Xu (1801212958)
 Yang Cao (1801212825)
 Alimujiang (1801212778)
@@ -24,18 +24,18 @@ The data set contains a total of 31 indicators. The indicator Class is the respo
 ![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/8YUQ4vKPKp.vxIKbDZcdtu10.U2ROYCVBNkXnnnTRTynoBH6eMwdHJHLNLgMhHppfMAltgVX69w9dzUQTtEvVw!!/b&bo=pgM5AwAAAAARB68!&rf=viewer_4&t=5)
 
 **4.	Feature selection**
-1)	Data cleaning
+**1)	Data cleaning**
 We check the missing data by calling the Missingno tool in Python. As shown in the following figure, the data is very complete and does not require preprocessing operations such as data filling.
 ![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/yCLjTthScCcjc0qcPSGYBgdSPT36VG3HpWmcbhuXi16AgrNuCoTJr25m0U.ty6kmlPQ3xzQesdAu.Ney6*m5igYvWX9eqq741WcjbEzfuEo!/b&bo=BAb2AgAAAAARF9Y!&rf=viewer_4&t=5)
 Data loss
 
-2)	Data scaling
+**2)	Data scaling**
 The unit of the indicator Time is seconds, which causes the value of the indicator to be much larger than other indicators, which is not convenient for subsequent analysis with other indicators, so it is converted into units of hours, corresponding to the time of day. The magnitude of other indicators are relatively close and no additional processing is required.
 
-3)	Comparison
+**3)	Comparison**
 In order to better distinguish the features between positive and negative samples, we will separate the positive and negative samples and compare them separately to better extract the features of the data.
 
-4)	Correlation between positive and negative sample variables
+**4)	Correlation between positive and negative sample variables**
 In the incident of the credit card swiping, the correlation between some variables is more obvious. The variables V1, V2, V3, V4, V5, V6, V7, V9, V10, V11, V12, V14, V16, V17, V18, and V19 showed certain patterns in the credit card swiping samples.
 ![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/yCLjTthScCcjc0qcPSGYBq3A5ZTXhJwGHUrySywy2PTfHO4Hy*142R0zmlOKZoqwAvQxIDKArL4e17Nvm*n0BG8VZmyDZ12M6Nyo5EX0rMs!/b&bo=gALgAQAAAAARF0M!&rf=viewer_4&t=5)
 Description of the correlation of variables of swiping sample
@@ -43,29 +43,29 @@ Description of the correlation of variables of swiping sample
 ![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/yCLjTthScCcjc0qcPSGYBt0JAuHHLz98RwLw0L0bV6drdXjo3Wenn8YMWUSHjkfZkUv7gcr77QHAJ.womya*t1x1g5HcsTDmEzRe.qkioAs!/b&bo=gALgAQAAAAARF0M!&rf=viewer_4&t=5)
 Description of the correlation of variables of swiping sample
 
-5)	Positive and negative sample transaction amount
+**5)	Positive and negative sample transaction amount**
 The amount of credit card swiping transaction appears to be scattered and small compared with the amount of credit card normal transaction.
 ![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/yCLjTthScCcjc0qcPSGYBg5c0T*RB8HxVxumFDIC*GbeT9FO5IMG4rTkVhSTtjcEcw5kxZANziypDyJl7aMKpah*DziDnH*p4CAIYKPP.S4!/b&bo=4QRoAQAAAAARF6w!&rf=viewer_4&t=5)
 Amount of transaction of positive and negative samples
 
-6)	Positive and negative sample trading time distribution
+**6)	Positive and negative sample trading time distribution**
 As the normal transaction time distribution diagram shows, between there is a high-frequency period of credit card consumption during 9 am and 11 pm every day.
 As the time distribution of fraudulent transactions show, the highest number of credit card swiping transactions reached 43 at 11 am on the first day, followed by second number at 2 am, indicating that credit card thieves did not want to attract the attention of credit card owners and prefer to choose the time when the credit card owner sleeps or the frequency of consumption is high.
 ![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/yCLjTthScCcjc0qcPSGYBpHjFeOfW8W*8S92X1tuU4CoxUe05sMBPTUVvCWDzfmMvPsEww.CBdV0ZhseIB8Mn1VmItEZKd42cEps5h8PNt8!/b&bo=DQX1AgAAAAARF98!&rf=viewer_4&t=5)
 Distribution of transaction time of credit card swiping sample
 
-7)	Relationship between positive and negative sample transaction amount and transaction time
+**7)	Relationship between positive and negative sample transaction amount and transaction time**
 It can be seen from the figure that in the sample of credit card swiping, the outliers occurred during the period when the customer used the credit card to spend at a lower frequency. At the same time, the maximum amount of credit card swiping is only 2,125.87 US dollars.
 ![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/yCLjTthScCcjc0qcPSGYBmsuzUMfNPIv7QCzvaLWE7NAwCaYDOCUZZnbn3AO245qNpdrtODNThd1tsPhPlaRNvlzlyNvYvIhoyEIrIUJM9c!/b&bo=2wQdAgAAAAARF.A!&rf=viewer_4&t=5)
 Relation between amount and time of fraudulent transaction
 
-8)	Distribution of different variables on positive and negative samples
+**8)	Distribution of different variables on positive and negative samples**
 The following figure lists some of the distributions of different variables in credit card swiping and normal samples. We will choose variables that have obvious differences in the distribution of different credit card states, excluding variables that distinguish poorly between positive and negative samples, such as V8, V13 and V24, after processing, the feature variable was reduced from 31 to 18.
 
 ![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/yCLjTthScCcjc0qcPSGYBnmdpSIQCHI3SMzT2uh4t5N5jY8r8e7eh47obUPB*6CI3NwnI3y*dq7rOeLDM974Flr*6qGdB0nSUNTIC8zPH2U!/b&bo=igMFAQAAAAARF60!&rf=viewer_4&t=5)
 Distribution histogram of characteristic variable v1
 
-9)	Data dimensionality reduction
+**9)	Data dimensionality reduction**
 Next, we perform principal component analysis on the data and reduce the 28-dimensional data to a 2-dimensional space. The data distribution after dimensionality reduction is shown in the figure below, where red zone represents samples of normal transactions and green zone represents samples of fraudulent transactions.
 
 ![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/yCLjTthScCcjc0qcPSGYBg.gtOIc2isU6R8*YX*hWTRnHagPMKSpUXyvlat3rBs.71XGZrsq.*0.*maSwzgDIASiFvmqIpdnh0ys.CVQaXY!/b&bo=gALgAQAAAAARF0M!&rf=viewer_4&t=5)
@@ -272,5 +272,4 @@ https://nilsonreport.com/upload/content promo/The Nilson Report Issue 1118.pdf
 [6] A. Dal Pozzolo, G. Boracchi, O. Caelen, C. Alippi, G. Bontempi, Credit card fraud 	detection: a realistic modeling and a novel learning strategy, IEEE Trans. Neural 	Netw. Learn. Syst. 29 (2017) 3784–3797.
 [7] N. Sethi, A. Gera, A revived survey of various credit card fraud detection 	techniques, Int. J. Comput. Sci. Mobile Comput. 3 (4) (2014) 780–791.
 [8] P.R. Shimpi, V. Kadroli, Survey on credit card fraud detection techniques, Int. J. 	Eng. Comput. Sci. 4 (11) (2015) 15010–15015.
-[9]Lebichot B., Le Borgne YA., He-Guelton L., Oblé F., Bontempi G. (2020) 	Deep-Learning Domain Adaptation Techniques for Credit Cards Fraud Detection. 	In: Oneto L., Navarin N., Sperduti A., Anguita D. (eds) Recent Advances in Big 	Data and Deep Learning. INNSBDDL 2019. Proceedings of the International 	Neural Networks Society, vol 1. Springer, Cham
 
