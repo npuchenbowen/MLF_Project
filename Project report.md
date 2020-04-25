@@ -8,6 +8,7 @@ Bowen Chen (1801212827)
 
 
 **1.	Research background**
+
 In recent years, there have been a lot of credit card swiping incidents. According to research and statistics from Nielsen Consulting, in 2017, global credit card fraud losses amounted to 22.8 billion US dollars and are expected to continue to grow [1]. Although credit card swiping transactions account for only a very small portion of all credit card transactions, once it occurs, it will cause unnecessary losses to the credit card holder, and sometimes the amount of the loss is huge.
 Specifically, credit card swiping refers to illegal or criminal acts in which criminals copy other people ’s credit cards in various illegal forms, thereby stealing cardholder ’s funds. In real life, the main manifestation is that the cardholder’s fund is stolen by an unfamiliar third party without the loss of the credit card and the payment password is not informed to others.
 
@@ -16,6 +17,7 @@ Specifically, credit card swiping refers to illegal or criminal acts in which cr
 
 
 **2.	Motivation**
+
 Since credit card swiping would cause financial losses to the holders and affect the efficiency of financial institutions, it is necessary to design an automatic fraud detection system for high-precision fraud detection. This project hopes to use a set of credit card consumption data sets to train a classifier to distinguish whether the user's credit card use records are fraudulent information, which could help the credit card company effectively identify fraudulent credit card transactions.
 
 ------------
@@ -23,10 +25,13 @@ Since credit card swiping would cause financial losses to the holders and affect
 
 
 **3.	Data description**
+
 1)	outline
+
 The data set used in this project is a group of European cardholders ’credit card transaction data in September 2013 (which has been vectorized). This data set contains transactions that occurred within two days, a total of 284,807, of which 492 belong Piracy transactions, the rest belong to normal transactions, the data set is very unbalanced, piracy transactions only account for 0.172% of all transactions. The data set contains 31 descriptive indicators. The introduction and descriptive statistics of the indicators are shown in the following section.
 
 2)	Variables
+
 The data set contains a total of 31 indicators. The indicator Class is the response variable. If the transaction is a fraudulent transaction, the value is 1. If the transaction is a normal transaction, the value is 0. The indicator Time describes the time when the transaction occurs. Specifically, it is the interval between the time of each transaction and the time of the first transaction; the indicator Amount is the amount of the transaction; the indicators v1, v2-v28 are obtained through PCA. Due to the privacy issue, the meaning of v1-v28 are not available.
 
 <center> Descriptive statistics of primary indicators </center>
@@ -52,25 +57,32 @@ We check the missing data by calling the Missingno tool in Python. As shown in t
 <center> Data loss </center>
 
 **2)	Data scaling**
+
 The unit of the indicator Time is seconds, which causes the value of the indicator to be much larger than other indicators, which is not convenient for subsequent analysis with other indicators, so it is converted into units of hours, corresponding to the time of day. The magnitude of other indicators are relatively close and no additional processing is required.
 
 **3)	Comparison**
+
 In order to better distinguish the features between positive and negative samples, we will separate the positive and negative samples and compare them separately to better extract the features of the data.
 
 **4)	Correlation between positive and negative sample variables**
+
 In the incident of the credit card swiping, the correlation between some variables is more obvious. The variables V1, V2, V3, V4, V5, V6, V7, V9, V10, V11, V12, V14, V16, V17, V18, and V19 showed certain patterns in the credit card swiping samples.
+
 ![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/yCLjTthScCcjc0qcPSGYBq3A5ZTXhJwGHUrySywy2PTfHO4Hy*142R0zmlOKZoqwAvQxIDKArL4e17Nvm*n0BG8VZmyDZ12M6Nyo5EX0rMs!/b&bo=gALgAQAAAAARF0M!&rf=viewer_4&t=5)
+
 <center>Description of the correlation of variables of swiping sample</center>
 
 ![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/yCLjTthScCcjc0qcPSGYBt0JAuHHLz98RwLw0L0bV6drdXjo3Wenn8YMWUSHjkfZkUv7gcr77QHAJ.womya*t1x1g5HcsTDmEzRe.qkioAs!/b&bo=gALgAQAAAAARF0M!&rf=viewer_4&t=5)
 <center> Description of the correlation of variables of swiping sample </center>
 
 **5)	Positive and negative sample transaction amount**
+
 The amount of credit card swiping transaction appears to be scattered and small compared with the amount of credit card normal transaction.
 ![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/yCLjTthScCcjc0qcPSGYBg5c0T*RB8HxVxumFDIC*GbeT9FO5IMG4rTkVhSTtjcEcw5kxZANziypDyJl7aMKpah*DziDnH*p4CAIYKPP.S4!/b&bo=4QRoAQAAAAARF6w!&rf=viewer_4&t=5)
 Amount of transaction of positive and negative samples
 
 **6)	Positive and negative sample trading time distribution**
+
 As the normal transaction time distribution diagram shows, between there is a high-frequency period of credit card consumption during 9 am and 11 pm every day.
 As the time distribution of fraudulent transactions show, the highest number of credit card swiping transactions reached 43 at 11 am on the first day, followed by second number at 2 am, indicating that credit card thieves did not want to attract the attention of credit card owners and prefer to choose the time when the credit card owner sleeps or the frequency of consumption is high.
 ![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/yCLjTthScCcjc0qcPSGYBpHjFeOfW8W*8S92X1tuU4CoxUe05sMBPTUVvCWDzfmMvPsEww.CBdV0ZhseIB8Mn1VmItEZKd42cEps5h8PNt8!/b&bo=DQX1AgAAAAARF98!&rf=viewer_4&t=5)
@@ -78,17 +90,20 @@ As the time distribution of fraudulent transactions show, the highest number of 
 
 
 **7)	Relationship between positive and negative sample transaction amount and transaction time**
+
 It can be seen from the figure that in the sample of credit card swiping, the outliers occurred during the period when the customer used the credit card to spend at a lower frequency. At the same time, the maximum amount of credit card swiping is only 2,125.87 US dollars.
 ![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/yCLjTthScCcjc0qcPSGYBmsuzUMfNPIv7QCzvaLWE7NAwCaYDOCUZZnbn3AO245qNpdrtODNThd1tsPhPlaRNvlzlyNvYvIhoyEIrIUJM9c!/b&bo=2wQdAgAAAAARF.A!&rf=viewer_4&t=5)
 <center>Relation between amount and time of fraudulent transaction</center>
 
 **8)	Distribution of different variables on positive and negative samples**
+
 The following figure lists some of the distributions of different variables in credit card swiping and normal samples. We will choose variables that have obvious differences in the distribution of different credit card states, excluding variables that distinguish poorly between positive and negative samples, such as V8, V13 and V24, after processing, the feature variable was reduced from 31 to 18.
 
 ![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/yCLjTthScCcjc0qcPSGYBnmdpSIQCHI3SMzT2uh4t5N5jY8r8e7eh47obUPB*6CI3NwnI3y*dq7rOeLDM974Flr*6qGdB0nSUNTIC8zPH2U!/b&bo=igMFAQAAAAARF60!&rf=viewer_4&t=5)
 <center>Distribution histogram of characteristic variable v1</center>
 
 **9)	Data dimensionality reduction**
+
 Next, we perform principal component analysis on the data and reduce the 28-dimensional data to a 2-dimensional space. The data distribution after dimensionality reduction is shown in the figure below, where red zone represents samples of normal transactions and green zone represents samples of fraudulent transactions.
 
 ![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/yCLjTthScCcjc0qcPSGYBg.gtOIc2isU6R8*YX*hWTRnHagPMKSpUXyvlat3rBs.71XGZrsq.*0.*maSwzgDIASiFvmqIpdnh0ys.CVQaXY!/b&bo=gALgAQAAAAARF0M!&rf=viewer_4&t=5)
