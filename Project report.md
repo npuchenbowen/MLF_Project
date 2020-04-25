@@ -34,7 +34,7 @@ The data set used in this project is a group of European cardholders ’credit c
 
 The data set contains a total of 31 indicators. The indicator Class is the response variable. If the transaction is a fraudulent transaction, the value is 1. If the transaction is a normal transaction, the value is 0. The indicator Time describes the time when the transaction occurs. Specifically, it is the interval between the time of each transaction and the time of the first transaction; the indicator Amount is the amount of the transaction; the indicators v1, v2-v28 are obtained through PCA. Due to the privacy issue, the meaning of v1-v28 are not available.
 
-<center> Descriptive statistics of primary indicators </center>
+(Descriptive statistics of primary indicators)
 
 ![](http://m.qpic.cn/psc?/V11zaUPV2EE2Gc/8YUQ4vKPKp.vxIKbDZcdtkyCk7SnMSoP0FRtKWMKmlDMQDjRUWrmu8Fu2MuH3Hxz9.ceAS5idFQznWnW7B1jdg!!/mnull&bo=6APVAgAAAAADBx4!&rf=photolist&t=5)
 
@@ -54,7 +54,7 @@ We check the missing data by calling the Missingno tool in Python. As shown in t
 
 ![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/yCLjTthScCcjc0qcPSGYBgdSPT36VG3HpWmcbhuXi16AgrNuCoTJr25m0U.ty6kmlPQ3xzQesdAu.Ney6*m5igYvWX9eqq741WcjbEzfuEo!/b&bo=BAb2AgAAAAARF9Y!&rf=viewer_4&t=5)
 
-<center> Data loss </center>
+(Data loss)
 
 **2)	Data scaling**
 
@@ -70,16 +70,16 @@ In the incident of the credit card swiping, the correlation between some variabl
 
 ![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/yCLjTthScCcjc0qcPSGYBq3A5ZTXhJwGHUrySywy2PTfHO4Hy*142R0zmlOKZoqwAvQxIDKArL4e17Nvm*n0BG8VZmyDZ12M6Nyo5EX0rMs!/b&bo=gALgAQAAAAARF0M!&rf=viewer_4&t=5)
 
-<center>Description of the correlation of variables of swiping sample</center>
+(Description of the correlation of variables of swiping sample)
 
 ![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/yCLjTthScCcjc0qcPSGYBt0JAuHHLz98RwLw0L0bV6drdXjo3Wenn8YMWUSHjkfZkUv7gcr77QHAJ.womya*t1x1g5HcsTDmEzRe.qkioAs!/b&bo=gALgAQAAAAARF0M!&rf=viewer_4&t=5)
-<center> Description of the correlation of variables of swiping sample </center>
+(Description of the correlation of variables of swiping sample)
 
 **5)	Positive and negative sample transaction amount**
 
 The amount of credit card swiping transaction appears to be scattered and small compared with the amount of credit card normal transaction.
 ![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/yCLjTthScCcjc0qcPSGYBg5c0T*RB8HxVxumFDIC*GbeT9FO5IMG4rTkVhSTtjcEcw5kxZANziypDyJl7aMKpah*DziDnH*p4CAIYKPP.S4!/b&bo=4QRoAQAAAAARF6w!&rf=viewer_4&t=5)
-Amount of transaction of positive and negative samples
+(Amount of transaction of positive and negative samples)
 
 
 **6)	Positive and negative sample trading time distribution**
@@ -87,7 +87,7 @@ Amount of transaction of positive and negative samples
 As the normal transaction time distribution diagram shows, between there is a high-frequency period of credit card consumption during 9 am and 11 pm every day.
 As the time distribution of fraudulent transactions show, the highest number of credit card swiping transactions reached 43 at 11 am on the first day, followed by second number at 2 am, indicating that credit card thieves did not want to attract the attention of credit card owners and prefer to choose the time when the credit card owner sleeps or the frequency of consumption is high.
 ![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/yCLjTthScCcjc0qcPSGYBpHjFeOfW8W*8S92X1tuU4CoxUe05sMBPTUVvCWDzfmMvPsEww.CBdV0ZhseIB8Mn1VmItEZKd42cEps5h8PNt8!/b&bo=DQX1AgAAAAARF98!&rf=viewer_4&t=5)
-<center>Distribution of transaction time of credit card swiping sample</center>
+(Distribution of transaction time of credit card swiping sample)
 
 
 
@@ -103,24 +103,24 @@ It can be seen from the figure that in the sample of credit card swiping, the ou
 The following figure lists some of the distributions of different variables in credit card swiping and normal samples. We will choose variables that have obvious differences in the distribution of different credit card states, excluding variables that distinguish poorly between positive and negative samples, such as V8, V13 and V24, after processing, the feature variable was reduced from 31 to 18.
 
 ![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/yCLjTthScCcjc0qcPSGYBnmdpSIQCHI3SMzT2uh4t5N5jY8r8e7eh47obUPB*6CI3NwnI3y*dq7rOeLDM974Flr*6qGdB0nSUNTIC8zPH2U!/b&bo=igMFAQAAAAARF60!&rf=viewer_4&t=5)
-<center>Distribution histogram of characteristic variable v1</center>
+(Distribution histogram of characteristic variable v1)
 
 **9)	Data dimensionality reduction**
 
 Next, we perform principal component analysis on the data and reduce the 28-dimensional data to a 2-dimensional space. The data distribution after dimensionality reduction is shown in the figure below, where red zone represents samples of normal transactions and green zone represents samples of fraudulent transactions.
 
 ![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/yCLjTthScCcjc0qcPSGYBg.gtOIc2isU6R8*YX*hWTRnHagPMKSpUXyvlat3rBs.71XGZrsq.*0.*maSwzgDIASiFvmqIpdnh0ys.CVQaXY!/b&bo=gALgAQAAAAARF0M!&rf=viewer_4&t=5)
-<center>Initial visual effect of PCA</center>
+(Initial visual effect of PCA)
 
 Due to the imbalance of the data set, there are 280,000 pieces of non-swiping data, which is a large amount of data, and there are less than 500 pieces of credit card swiping transaction data. Therefore, we randomly select 1,000 non-swiping data, and then perform principal component analysis to improve the discrimination effect.
 
 ![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/yCLjTthScCcjc0qcPSGYBn9sT2.eGnK0Me9oj3*OAEjXKfOOHgY.NBFwkK74C7U.gFnRXnIZVMhSNBHji*eJa2nTcq4p25NgRUIC7qeRMnA!/b&bo=gALgAQAAAAADF1E!&rf=viewer_4&t=5)
-<center>Visual effect of PCA after subsampled</center>
+(Visual effect of PCA after subsampled)
 
 Then we try to use a better nonlinear dimensionality reduction method T-SNE, the results show that the distinction between positive and negative samples is more obvious.
 
 ![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/yCLjTthScCcjc0qcPSGYBuyJSgirV5pGX9*xEC90sUZtUGPXEZtiKaIbl7alpP.TKJYuM2QG9MiaNDhYK*qZdDbCr6nQzLQ0KPIR4mpy82U!/b&bo=DgNJAgAAAAARF2Y!&rf=viewer_4&t=5)
-<center>Visual effect of TSNE</center>
+(Visual effect of TSNE)
 
 Finally, through 3D display, we can a better visual effect.
 
@@ -136,8 +136,12 @@ The sigmoid function, also called the sigmoidal curve (von Seggern 2007, p. 148)
 ![](http://m.qpic.cn/psc?/V11zaUPV2EE2Gc/8YUQ4vKPKp.vxIKbDZcdtoE.mqkpDrnr8oVv0FrwTO7L59FzliSEA8BRnmbvbi72oZq4aVjGn5gbRrUlJRYdDw!!/mnull&bo=kQAxAAAAAAADB4I!&rf=photolist&t=5)
 
 Function image of Sigmoid function is:
+
+
 ![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/8YUQ4vKPKp.vxIKbDZcdtmPdxfHJAHUjcTegHGqLXmsYw6sOj2WUvky3K4a018zKKCwYwwADLsLyMV1b6VS4vQ!!/mnull&bo=5gFKAQAAAAARB5w!&rf=photolist&t=5)
-Sigmoid function
+
+
+(Sigmoid function)
 
 <div align=left>
 A sigmoid function is a type of activation function, and more specifically defined as a squashing function. Squashing functions limit the output to a range between 0 and 1, making these functions useful in the prediction of probabilities.
@@ -336,8 +340,13 @@ In the process of model building, we manually process the data features. But in 
 In this project, we did not obtain enough information dimensions. However, in practice, more types of data, such as credit investigation data of the PBC (People's Bank of China) and user behavior data in Internet companies, can be used as important data for credit card fraud detection model.
 More advanced algorithms such as relational network, streaming active learning strategy and deep learning can be applied to credit card fraud detection.
 
+------------
+
+
 
 **Reference**
+
+
 [1]HSN Consultants, Inc.: The Nilson report (consulted on 2018-10-23) (2017).
 https://nilsonreport.com/upload/content promo/The Nilson Report Issue 1118.pdf
 [2]Carcillo, F., Dal Pozzolo, A., Le Borgne, Y.A., Caelen, O., Mazzer, Y., Bontempi, 	G.: Scar_: a scalable framework for streaming credit card fraud detection with 	spark. Information fusion 41, 182{194 (2018)
