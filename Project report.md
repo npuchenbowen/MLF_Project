@@ -199,11 +199,13 @@ False Positives,FP：The prediction is a positive sample, but the actual number 
 True Negatives,TN：The prediction is a negative sample, and the actual number of features is also a negative sample;
 False Negatives,FN：The prediction is a negative sample, but the actual number of features is a positive sample;
 According to the above definitions of four types of situations, relevant model evaluation indicators can be calculated:
-1)	Accuracy：(TP + TN) / ( ALL )
-2)	Precision：TP / (TP + FP);
-3)	Recall：TP / (TP + FN);
-The calculation and meaning of Precision and Recall can also be intuitively understood through the following picture.
 
+Accuracy：(TP + TN) / ( ALL )
+
+Precision：TP / (TP + FP);
+Recall：TP / (TP + FN);
+
+The calculation and meaning of Precision and Recall can also be intuitively understood through the following picture.
 
 ![](http://m.qpic.cn/psc?/V11zaUPV2EE2Gc/8YUQ4vKPKp.vxIKbDZcdtq.EZugXycvz98LG7yOETXVOh8YwVfWUZ27uPiQyXqZXBycUqbcvPnRStwEVZjvYfg!!/mnull&bo=hAFMAQAAAAADB.o!&rf=photolist&t=5)
 
@@ -406,12 +408,20 @@ More advanced algorithms such as relational network, streaming active learning s
 
 [1]HSN Consultants, Inc.: The Nilson report (consulted on 2018-10-23) (2017).
 https://nilsonreport.com/upload/content promo/The Nilson Report Issue 1118.pdf
+
 [2]Carcillo, F., Dal Pozzolo, A., Le Borgne, Y.A., Caelen, O., Mazzer, Y., Bontempi, 	G.: Scar_: a scalable framework for streaming credit card fraud detection with 	spark. Information fusion 41, 182{194 (2018)
+
 [3]Pozzolo, A.D., Boracchi, G., Caelen, O., Alippi, C., Bontempi, G.: Credit card 	fraud detection: A realistic modeling and a novel learning strategy. IEEE 	Transactions on Neural Networks and Learning Systems PP(99), 1{14 (2018). D	OI 10.1109/TNNLS.2017.2736643
+
 [4] A.C. Bahnsen, D. Aouada, B. Ottersten, Example-dependent cost-sensitive 	decision trees, Expert Syst. Appl. 42 (19) (2015) 6609–6619.
+
 [5] F. Carcillo, A. Dal Pozzolo, Y.A. Le Borgne, O. Caelen, Y. Mazzer, G. Bontempi, 	Scarff: a scalable framework for streaming credit card fraud detection with spark, 	Inf. Fusion 41 (2018) 182–194.
+
 [6] A. Dal Pozzolo, G. Boracchi, O. Caelen, C. Alippi, G. Bontempi, Credit card fraud 	detection: a realistic modeling and a novel learning strategy, IEEE Trans. Neural 	Netw. Learn. Syst. 29 (2017) 3784–3797.
+
 [7] N. Sethi, A. Gera, A revived survey of various credit card fraud detection 	techniques, Int. J. Comput. Sci. Mobile Comput. 3 (4) (2014) 780–791.
+
 [8] P.R. Shimpi, V. Kadroli, Survey on credit card fraud detection techniques, Int. J. 	Eng. Comput. Sci. 4 (11) (2015) 15010–15015.
+
 [9]Lebichot B., Le Borgne YA., He-Guelton L., Oblé F., Bontempi G. (2020) 	Deep-Learning Domain Adaptation Techniques for Credit Cards Fraud Detection. 	In: Oneto L., Navarin N., Sperduti A., Anguita D. (eds) Recent Advances in Big 	Data and Deep Learning. INNSBDDL 2019. Proceedings of the International 	Neural Networks Society, vol 1. Springer, Cham
 
