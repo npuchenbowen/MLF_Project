@@ -1,12 +1,14 @@
 # PHBS_MLF_2019_Project
-##Catching the mouse_identify fraudulent credit card transactions
-Yuchuan Xu (1801212958)
-Yang Cao (1801212825)
-Alimujiang (1801212778)
-Bowen Chen (1801212827)
+## Catching the mouse_identify fraudulent credit card transactions
+
+### Yuchuan Xu (1801212958)
+### Yang Cao (1801212825)
+### Alimujiang (1801212778)
+### Bowen Chen (1801212827)
 
 
-**1.	Research background**
+**1.Research background**
+
 In recent years, there have been a lot of credit card swiping incidents. According to research and statistics from Nielsen Consulting, in 2017, global credit card fraud losses amounted to 22.8 billion US dollars and are expected to continue to grow [1]. Although credit card swiping transactions account for only a very small portion of all credit card transactions, once it occurs, it will cause unnecessary losses to the credit card holder, and sometimes the amount of the loss is huge.
 Specifically, credit card swiping refers to illegal or criminal acts in which criminals copy other people ’s credit cards in various illegal forms, thereby stealing cardholder ’s funds. In real life, the main manifestation is that the cardholder’s fund is stolen by an unfamiliar third party without the loss of the credit card and the payment password is not informed to others.
 
