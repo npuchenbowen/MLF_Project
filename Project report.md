@@ -36,7 +36,7 @@ The data set contains a total of 31 indicators. The indicator Class is the respo
 
 (Descriptive statistics of primary indicators)
 
-![](http://m.qpic.cn/psc?/V11zaUPV2EE2Gc/8YUQ4vKPKp.vxIKbDZcdtkyCk7SnMSoP0FRtKWMKmlDMQDjRUWrmu8Fu2MuH3Hxz9.ceAS5idFQznWnW7B1jdg!!/mnull&bo=6APVAgAAAAADBx4!&rf=photolist&t=5)
+![](http://m.qpic.cn/psc?/V11zaUPV2EE2Gc/8YUQ4vKPKp.vxIKbDZcdtk2gilby.ETBA2v*SvSmiEv4iqZir4kBxVQZhRorC7eC5P.zzc8jLllD5LvhVtWkHw!!/mnull&bo=IgazAgAAAAADB7c!&rf=photolist&t=5)
 
 
 
