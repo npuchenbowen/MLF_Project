@@ -255,9 +255,10 @@ The effect index of the model can be calculated through the confusion matrix:
 After solving the problem of sample imbalance through SMOTE, ROC-AUC indicators, Recall (recall rate) and Precision (precision rate) have been greatly improved, and the model performs very well.
 As mentioned earlier, thresholds also have an important effect on the results, so let's take a look at how much different thresholds will affect the results. The horizontal axis in the figure below is the Recall recall rate, and the vertical axis is the Precision recall rate. Different colored lines correspond to different thresholds. It can be seen that as the threshold decreases, the recall rate gradually increases, the precision rate gradually decreases, and the model's misjudgment also increases.
 
-<div align=center>![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/8YUQ4vKPKp.vxIKbDZcdtnxcm1INVA0liWIkZBlR98.eXa216W5kgbNzcdEeVgRoWP7A*RZHIbl6cv4j1*HAKg!!/mnull&bo=sAS8AgAAAAARBzo!&rf=photolist&t=5)
-Precision-Recall Curve
-<div align=left>
+![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/8YUQ4vKPKp.vxIKbDZcdtnxcm1INVA0liWIkZBlR98.eXa216W5kgbNzcdEeVgRoWP7A*RZHIbl6cv4j1*HAKg!!/mnull&bo=sAS8AgAAAAARBzo!&rf=photolist&t=5)
+
+(Precision-Recall Curve)
+
 This phenomenon is very significant. In actual business, if the threshold is set high, the attack on theft may be too small. If the setting is too low, it may indeed be possible to find more cardholders whose credit cards have been stolen, but as the number of misjudgments increases, not only will the workload of the post-loan team increase, but it will also reduce the misjudgment of credit card theft Brush customer's consumption experience, which leads to a decrease in customer satisfaction. In reality, the company's choice of threshold should be a point where the marginal profit and marginal cost of the business can be balanced.
 
 
@@ -265,29 +266,36 @@ This phenomenon is very significant. In actual business, if the threshold is set
 
 
 **6.	Rat Poison-AutoEncoder combined with Logistic regression**
+
 (1)	Introduction to AutoEncoder
+
 AutoEncoder automatically encodes the input training set of the neural network as an unlabeled data set, so it is an unsupervised learning algorithm. It was proposed by the scientist Rumelhart in 1986 and is an important node in the development of neural networks. It is mainly used for complex high-level Dimensional data analysis. Autoencoder uses BP back-propagation algorithm to back-test to make the target output equal to the input value.
 Autoencoder is a multi-layer neural network with the same meaning as the input layer and the output layer. The input layer and the output layer have the same number of nodes. The number of neurons in the two layers is exactly the same, but the number of neurons in the hidden layer must be less than the output. Floor. This model is often used for dimensionality reduction or feature learning, the structure is as follows:
-<div align=center>![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/8YUQ4vKPKp.vxIKbDZcdtp6yWxZqy8kxyRNqqzF7phlvgMf1YKpuvcEt3U**4IUeovkJNY9euzKSUdpqjkpd4g!!/mnull&bo=agGOAQAAAAARB9Q!&rf=photolist&t=5)
-A simple self-encoder structure
-<div align=left>
+
+![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/8YUQ4vKPKp.vxIKbDZcdtp6yWxZqy8kxyRNqqzF7phlvgMf1YKpuvcEt3U**4IUeovkJNY9euzKSUdpqjkpd4g!!/mnull&bo=agGOAQAAAAARB9Q!&rf=photolist&t=5)
+
+(A simple self-encoder structure)
+
 
 We can understand the self-encoder through an example: the chess master observes the board for 5 seconds and can remember the positions of all the pieces, which is impossible for ordinary people. However, the placement of the pieces must be the actual game (that is, there are rules for the pieces, just like the second set of numbers), and the randomly placed chessboards can't work (like the first set of numbers). Chess masters are not superior to ordinary people in memory, but are experienced and very good at recognizing chess patterns, so as to efficiently remember chess games.
 Similar to the player's memory model, an autoencoder receives input, converts it into an efficient internal representation, and then outputs the analog of the input data. Self-encoders usually consist of two parts: Encoder (also known as recognition network) converts the input into an internal representation, and Decoder (also known as generation network) converts the internal representation into an output.
 
-<div align=center>![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/8YUQ4vKPKp.vxIKbDZcdtriQPd4wo9ZNtHVDK*4DYegm0EVP0Gg7OcgdmEhXQZQoKM*1SpaWkyAkwQVDe0jHxA!!/mnull&bo=DQPaAQAAAAARB.U!&rf=photolist&t=5)
-Chess master's memory mode (left) and a simple self-encoder
-<div align=left>
+![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/8YUQ4vKPKp.vxIKbDZcdtriQPd4wo9ZNtHVDK*4DYegm0EVP0Gg7OcgdmEhXQZQoKM*1SpaWkyAkwQVDe0jHxA!!/mnull&bo=DQPaAQAAAAARB.U!&rf=photolist&t=5)
+
+(Chess master's memory mode (left) and a simple self-encoder)
+
 
 As shown in the figure above, the structure of the autoencoder is similar to the multilayer perceptron, except that the number of input neurons and output neurons are equal. In the example above, the autoencoder has only one hidden layer (Encoder) containing two neurons, and the output (Decoder) containing three neurons. The output is trying to reconstruct the input, and the loss function is the reconstruction loss. Since the dimension of the internal representation (that is, the output of the hidden layer) is smaller than the input data (2D replaces the original 3D), this is called an incomplete self-encoder.
 
 (2)	The core concept of AutoEncoder algorithm
+
 AutoEncoder is a neural network that is trained to copy the input to the output as much as possible. The neural network strives to make the output consistent with the input content. What it learns is an "identity function" where the input is equal to the output.
 As shown in the figure below, AutoEncoder is mainly composed of three parts: Input Layer, Hidden Layer and Output Layer. The network structure is relatively simple. Among them, there is a hidden layer h inside the autoencoder, which can generate codes to represent the input. The network can be viewed as consisting of two parts: an encoder h = f (x) and a decoder for generating reconstruction r = g (h). Finally, make x approximately equal to g (f (x)). The network can be designed so that x = g (f (x)).
 
-<div align=center>![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/8YUQ4vKPKp.vxIKbDZcdtuJbz7cfJ*ILmWHlEclKpPOeQKzgsWGy.yU4bqY8GneYxsQcxLV7sDjKxwFirYxPRw!!/mnull&bo=8ALqAAAAAAARByg!&rf=photolist&t=5)
-Self-encoder structure
-<div align=left>
+![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/8YUQ4vKPKp.vxIKbDZcdtuJbz7cfJ*ILmWHlEclKpPOeQKzgsWGy.yU4bqY8GneYxsQcxLV7sDjKxwFirYxPRw!!/mnull&bo=8ALqAAAAAAARByg!&rf=photolist&t=5)
+
+(Self-encoder structure)
+
 
 The core concept of the automatic encoder algorithm is: by establishing the Encode and Decode processes (actually encoder and decoder) in the hidden layer, the input and output are getting closer and closer, and the input data is encoded and decoded by the hidden layer, and the output a result consistent with the input data.
 Although this concept is theoretically feasible, the actual operation will not be so ideal. In order to allow the automatic encoder to learn the useful features of the data, it cannot be designed as an encoder with 100% copy input (theoretically, it cannot be done because the number of layers is different), so some constraints must be specified in the hidden layer. The Autoencoder can only be copied approximately.
@@ -302,17 +310,20 @@ The Autoencoder can be regarded as compressing the data, from the original "n-di
 
 2) Restoring the data should make the loss as small as possible. The objective function is specified as:
 
-<div align=center>![](http://m.qpic.cn/psc?/V11zaUPV2EE2Gc/8YUQ4vKPKp.vxIKbDZcdtrNnElSWqvOun2FgC7rfwrownIf7Po*x40U*I*cRSsHOU.aQVX3XxraMhGWN0a98ZA!!/mnull&bo=lgA6AAAAAAADB44!&rf=photolist&t=5)
-<div align=left>
+![](http://m.qpic.cn/psc?/V11zaUPV2EE2Gc/8YUQ4vKPKp.vxIKbDZcdtrNnElSWqvOun2FgC7rfwrownIf7Po*x40U*I*cRSsHOU.aQVX3XxraMhGWN0a98ZA!!/mnull&bo=lgA6AAAAAAADB44!&rf=photolist&t=5)
+
 
 In order to determine the initial data of the weights in the medium weight matrix, the autoencoder needs a BP neural network to do a pre-training to minimize the error between the input and output values. At the beginning, a process of compressing and extracting features will be introduced. The compression of the input data (limiting the number of hidden layer neurons) is re-encoded, and the low-dimensional vector data is used to replace the high-dimensional input data, so that the compressed low-dimensional vector can retain the input data To help restore the original data later. Re-encode the input data with a weight matrix, then enter the activation function, and then use WT to decode, so that h (x) ≈x. The Encode and Decode processes in the hidden layer use the same parameter matrix. Through these constraints, the number of parameters can be reduced and the model complexity can be reduced.
 The prerequisite for data compression is that there is some redundant information in the data, but we know that there is some redundant information in the data such as sound and images in the display. The self-encoding network continuously learns and Optimized to identify redundancy and remove redundancy.
+
 (4)	Considerations for using AutoEncoder
+
 In fact, the previous method of oversampling combined with Logistic regression has achieved good output in our experiments. The algorithm has high recognition accuracy for stolen brushes, but in order to optimize our model and improve the performance of the model, it is more accurate. To identify the stolen data and overcome the extremely unbalanced nature of the data sample itself, we used the AutoEncoder and Logistic regression to test again.
 According to the properties we learned about the Autoencoder, this model is actually a neural network to learn the correlation representation of the input data. Considering that this model has the following advantages, we think that it may be a model for identifying stolen brushes. It has a certain improvement effect: 1) can extract the core features of the input data through more efficient and low-loss dimensionality reduction; 2) has a certain ability to filter noise, can better grasp the core features of the data; 3) can be better The interpretation of sparse attributes, most of the real scenes meet this constraint; 4) The algorithm is scalable and has relatively stable properties; 5) The algorithm has strong expressive ability and is more suitable for data visualization processing, making the model results more intuitive.
 At the same time, according to previous experiments, we have noticed that Autoencoder also has some shortcomings: 1) The theoretical feasibility is greater than the actual usability, of course, this is highly related to the properties of the data itself and the scene; 2) The compression ability It is suitable for samples similar to training samples; 3) The learning ability of the encoder and decoder of the hidden layer cannot be too high, otherwise the function expression of the model is poor.
 
 (5)	AutoEncoder + Logistic regression experiment process and result analysis
+
 We used the data from the previous oversampling experiment to reduce the dimension to 3 dimensions using TSNE and visualize it. The results show that the distinction between positive and negative samples is obvious.
 
 ![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/8YUQ4vKPKp.vxIKbDZcdtuX5wEHPiPkDzt*FuQZ1tq.nazFqWhycdPnTuh53MjL5JlWLv9o*kh3LklThU3gWRA!!/mnull&bo=DANnAQAAAAARB1k!&rf=photolist&t=5)
