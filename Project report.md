@@ -87,6 +87,7 @@ The amount of credit card swiping transaction appears to be scattered and small 
 
 As the normal transaction time distribution diagram shows, between there is a high-frequency period of credit card consumption during 9 am and 11 pm every day.
 As the time distribution of fraudulent transactions show, the highest number of credit card swiping transactions reached 43 at 11 am on the first day, followed by second number at 2 am, indicating that credit card thieves did not want to attract the attention of credit card owners and prefer to choose the time when the credit card owner sleeps or the frequency of consumption is high.
+
 ![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/yCLjTthScCcjc0qcPSGYBpHjFeOfW8W*8S92X1tuU4CoxUe05sMBPTUVvCWDzfmMvPsEww.CBdV0ZhseIB8Mn1VmItEZKd42cEps5h8PNt8!/b&bo=DQX1AgAAAAARF98!&rf=viewer_4&t=5)
 
 (Distribution of transaction time of credit card swiping sample)
@@ -96,6 +97,7 @@ As the time distribution of fraudulent transactions show, the highest number of 
 **7)	Relationship between positive and negative sample transaction amount and transaction time**
 
 It can be seen from the figure that in the sample of credit card swiping, the outliers occurred during the period when the customer used the credit card to spend at a lower frequency. At the same time, the maximum amount of credit card swiping is only 2,125.87 US dollars.
+
 ![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/yCLjTthScCcjc0qcPSGYBmsuzUMfNPIv7QCzvaLWE7NAwCaYDOCUZZnbn3AO245qNpdrtODNThd1tsPhPlaRNvlzlyNvYvIhoyEIrIUJM9c!/b&bo=2wQdAgAAAAARF.A!&rf=viewer_4&t=5)
 
 (Relation between amount and time of fraudulent transaction)
@@ -150,7 +152,6 @@ Function image of Sigmoid function is:
 
 (Sigmoid function)
 
-<div align=left>
 A sigmoid function is a type of activation function, and more specifically defined as a squashing function. Squashing functions limit the output to a range between 0 and 1, making these functions useful in the prediction of probabilities.
 Sigmoidal functions are frequently used in machine learning, specifically in the testing of artificial neural networks, as a way of understanding the output of a node or “neuron.” For example, a neural network may attempt to find a desired solution given a set of inputs. A sigmoidal function will determine the output and that output will be used as the input for the following node. This process will repeat until the solution to the original problem is found.
 Based on the sigmoid function, the assumed function form of the logic function is as follows:
@@ -202,6 +203,7 @@ According to the above definitions of four types of situations, relevant model e
 2)	Precision：TP / (TP + FP);
 3)	Recall：TP / (TP + FN);
 The calculation and meaning of Precision and Recall can also be intuitively understood through the following picture.
+
 
 ![](http://m.qpic.cn/psc?/V11zaUPV2EE2Gc/8YUQ4vKPKp.vxIKbDZcdtq.EZugXycvz98LG7yOETXVOh8YwVfWUZ27uPiQyXqZXBycUqbcvPnRStwEVZjvYfg!!/mnull&bo=hAFMAQAAAAADB.o!&rf=photolist&t=5)
 
@@ -301,20 +303,20 @@ The core concept of the automatic encoder algorithm is: by establishing the Enco
 Although this concept is theoretically feasible, the actual operation will not be so ideal. In order to allow the automatic encoder to learn the useful features of the data, it cannot be designed as an encoder with 100% copy input (theoretically, it cannot be done because the number of layers is different), so some constraints must be specified in the hidden layer. The Autoencoder can only be copied approximately.
 The common constraints of this model are as follows:
 
-(1)The dimension of the output layer is much larger than the hidden layer;
+a)The dimension of the output layer is much larger than the hidden layer;
 
-(2)Use the output function to recover the input data by minimizing the error function of the input and output;
+b)Use the output function to recover the input data by minimizing the error function of the input and output;
 
-(3)Because this is an unsupervised learning model, the data is unlabeled, so the source of the error is the difference between the reconstruction and the input.
+c)Because this is an unsupervised learning model, the data is unlabeled, so the source of the error is the difference between the reconstruction and the input.
 
 The Autoencoder can be regarded as compressing the data, from the original "n-dimensional" to "m-dimensional", where m is the number of hidden layer neurons. Then, when necessary, recover the data with the least loss.
 
 (3)	AutoEncoder Algorithm Process
 
 
-1) The Autoencoder automatic encoding network is to restore the compressed data, that is to learn a set of h_(W,b) (x)≈x, which is the parameter to be learned by the algorithm.
+a) The Autoencoder automatic encoding network is to restore the compressed data, that is to learn a set of h_(W,b) (x)≈x, which is the parameter to be learned by the algorithm.
 
-2) Restoring the data should make the loss as small as possible. The objective function is specified as:
+b) Restoring the data should make the loss as small as possible. The objective function is specified as:
 
 ![](http://m.qpic.cn/psc?/V11zaUPV2EE2Gc/8YUQ4vKPKp.vxIKbDZcdtrNnElSWqvOun2FgC7rfwrownIf7Po*x40U*I*cRSsHOU.aQVX3XxraMhGWN0a98ZA!!/mnull&bo=lgA6AAAAAAADB44!&rf=photolist&t=5)
 
@@ -366,6 +368,7 @@ Through this image comparison, it is found that the effect obtained by AutoEncod
 
 
 **7. Ultra weapon——Two-pronged**
+
 In order to better identify fraud, we use a two-pronged weapon. We combined SMOTE oversampling with AutoEncoder and Logistic Regression. The results are shown in the following table: 
 
 ![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/8YUQ4vKPKp.vxIKbDZcdti0eKy4iGs0wW0NKoRw.JAQsfoYS9v.SGa3w*EytJxeAKaMd61JgkSk8GXEHIO2R4w!!/mnull&bo=egN*AQAAAAARBzc!&rf=photolist&t=5)
@@ -380,7 +383,7 @@ From the table, we can see that when we combined the three methods, we got bette
 
 From the figure, we can see that when the threshold changes from 0.1 to 0.9, the AUC is always above 0.98. It can be seen that our results are very little affected by the threshold and have strong robustness. 
 
-**7. Conclusion and further improvement**
+**8. Conclusion and further improvement**
 
 (1) Conclusion
 
@@ -389,7 +392,9 @@ In this project, we build a Machine Learning model to detect credit card fraud. 
 (2) Further improvement
 
 In the process of model building, we manually process the data features. But in practice, the data may contain millions of features, so automated feature engineering is important.
+
 In this project, we did not obtain enough information dimensions. However, in practice, more types of data, such as credit investigation data of the PBC (People's Bank of China) and user behavior data in Internet companies, can be used as important data for credit card fraud detection model.
+
 More advanced algorithms such as relational network, streaming active learning strategy and deep learning can be applied to credit card fraud detection.
 
 ------------
