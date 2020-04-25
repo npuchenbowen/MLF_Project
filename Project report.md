@@ -202,15 +202,14 @@ According to the above definitions of four types of situations, relevant model e
 
 Accuracy：(TP + TN) / ( ALL )
 
-Precision：TP / (TP + FP);
-Recall：TP / (TP + FN);
+Precision：TP / (TP + FP)
+
+Recall：TP / (TP + FN)
 
 The calculation and meaning of Precision and Recall can also be intuitively understood through the following picture.
 
-![](http://m.qpic.cn/psc?/V11zaUPV2EE2Gc/8YUQ4vKPKp.vxIKbDZcdtq.EZugXycvz98LG7yOETXVOh8YwVfWUZ27uPiQyXqZXBycUqbcvPnRStwEVZjvYfg!!/mnull&bo=hAFMAQAAAAADB.o!&rf=photolist&t=5)
-
 (Schematic diagram of model evaluation index calculation)
-
+![](http://m.qpic.cn/psc?/V11zaUPV2EE2Gc/8YUQ4vKPKp.vxIKbDZcdtq.EZugXycvz98LG7yOETXVOh8YwVfWUZ27uPiQyXqZXBycUqbcvPnRStwEVZjvYfg!!/mnull&bo=hAFMAQAAAAADB.o!&rf=photolist&t=5)
 
 Different indicators have different emphases, and Accuracy is the most commonly used indicator, which can generally measure the performance of a prediction. Precision is concerned about the correct proportion of positive samples predicted by the model, that is, the accuracy of the model prediction. Recall pays attention to the proportion of positive samples (TP) predicted by the model in all positive samples, that is, whether the model can find all positive samples and find them incomplete.
 The focus is different in different situations. In the scenario of recognizing spam, it may be biased towards Precision, because we don’t want many normal emails to be killed by mistake, which will cause serious problems. In the field of financial risk control, most of them prefer Recall. We hope that the system can screen out all risky behaviors or users, and then hand it over to human identification to omit one that may cause disastrous consequences.Two other commonly used indicators to evaluate the pros and cons of a Binary Classifier are ROC (Receiver Operating Characteristic) curve and AUC (Area Under Curve).
@@ -403,7 +402,7 @@ More advanced algorithms such as relational network, streaming active learning s
 
 
 
-**Reference**
+**References**
 
 
 [1]HSN Consultants, Inc.: The Nilson report (consulted on 2018-10-23) (2017).
