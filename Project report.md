@@ -73,6 +73,7 @@ In the incident of the credit card swiping, the correlation between some variabl
 (Description of the correlation of variables of swiping sample)
 
 ![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/yCLjTthScCcjc0qcPSGYBt0JAuHHLz98RwLw0L0bV6drdXjo3Wenn8YMWUSHjkfZkUv7gcr77QHAJ.womya*t1x1g5HcsTDmEzRe.qkioAs!/b&bo=gALgAQAAAAARF0M!&rf=viewer_4&t=5)
+
 (Description of the correlation of variables of swiping sample)
 
 **5)	Positive and negative sample transaction amount**
@@ -87,6 +88,7 @@ The amount of credit card swiping transaction appears to be scattered and small 
 As the normal transaction time distribution diagram shows, between there is a high-frequency period of credit card consumption during 9 am and 11 pm every day.
 As the time distribution of fraudulent transactions show, the highest number of credit card swiping transactions reached 43 at 11 am on the first day, followed by second number at 2 am, indicating that credit card thieves did not want to attract the attention of credit card owners and prefer to choose the time when the credit card owner sleeps or the frequency of consumption is high.
 ![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/yCLjTthScCcjc0qcPSGYBpHjFeOfW8W*8S92X1tuU4CoxUe05sMBPTUVvCWDzfmMvPsEww.CBdV0ZhseIB8Mn1VmItEZKd42cEps5h8PNt8!/b&bo=DQX1AgAAAAARF98!&rf=viewer_4&t=5)
+
 (Distribution of transaction time of credit card swiping sample)
 
 
@@ -95,7 +97,8 @@ As the time distribution of fraudulent transactions show, the highest number of 
 
 It can be seen from the figure that in the sample of credit card swiping, the outliers occurred during the period when the customer used the credit card to spend at a lower frequency. At the same time, the maximum amount of credit card swiping is only 2,125.87 US dollars.
 ![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/yCLjTthScCcjc0qcPSGYBmsuzUMfNPIv7QCzvaLWE7NAwCaYDOCUZZnbn3AO245qNpdrtODNThd1tsPhPlaRNvlzlyNvYvIhoyEIrIUJM9c!/b&bo=2wQdAgAAAAARF.A!&rf=viewer_4&t=5)
-<center>Relation between amount and time of fraudulent transaction</center>
+
+(Relation between amount and time of fraudulent transaction)
 
 
 **8)	Distribution of different variables on positive and negative samples**
@@ -103,6 +106,7 @@ It can be seen from the figure that in the sample of credit card swiping, the ou
 The following figure lists some of the distributions of different variables in credit card swiping and normal samples. We will choose variables that have obvious differences in the distribution of different credit card states, excluding variables that distinguish poorly between positive and negative samples, such as V8, V13 and V24, after processing, the feature variable was reduced from 31 to 18.
 
 ![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/yCLjTthScCcjc0qcPSGYBnmdpSIQCHI3SMzT2uh4t5N5jY8r8e7eh47obUPB*6CI3NwnI3y*dq7rOeLDM974Flr*6qGdB0nSUNTIC8zPH2U!/b&bo=igMFAQAAAAARF60!&rf=viewer_4&t=5)
+
 (Distribution histogram of characteristic variable v1)
 
 **9)	Data dimensionality reduction**
@@ -110,16 +114,19 @@ The following figure lists some of the distributions of different variables in c
 Next, we perform principal component analysis on the data and reduce the 28-dimensional data to a 2-dimensional space. The data distribution after dimensionality reduction is shown in the figure below, where red zone represents samples of normal transactions and green zone represents samples of fraudulent transactions.
 
 ![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/yCLjTthScCcjc0qcPSGYBg.gtOIc2isU6R8*YX*hWTRnHagPMKSpUXyvlat3rBs.71XGZrsq.*0.*maSwzgDIASiFvmqIpdnh0ys.CVQaXY!/b&bo=gALgAQAAAAARF0M!&rf=viewer_4&t=5)
+
 (Initial visual effect of PCA)
 
 Due to the imbalance of the data set, there are 280,000 pieces of non-swiping data, which is a large amount of data, and there are less than 500 pieces of credit card swiping transaction data. Therefore, we randomly select 1,000 non-swiping data, and then perform principal component analysis to improve the discrimination effect.
 
 ![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/yCLjTthScCcjc0qcPSGYBn9sT2.eGnK0Me9oj3*OAEjXKfOOHgY.NBFwkK74C7U.gFnRXnIZVMhSNBHji*eJa2nTcq4p25NgRUIC7qeRMnA!/b&bo=gALgAQAAAAADF1E!&rf=viewer_4&t=5)
+
 (Visual effect of PCA after subsampled)
 
 Then we try to use a better nonlinear dimensionality reduction method T-SNE, the results show that the distinction between positive and negative samples is more obvious.
 
 ![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/yCLjTthScCcjc0qcPSGYBuyJSgirV5pGX9*xEC90sUZtUGPXEZtiKaIbl7alpP.TKJYuM2QG9MiaNDhYK*qZdDbCr6nQzLQ0KPIR4mpy82U!/b&bo=DgNJAgAAAAARF2Y!&rf=viewer_4&t=5)
+
 (Visual effect of TSNE)
 
 Finally, through 3D display, we can a better visual effect.
@@ -157,9 +164,11 @@ Where x is the input variable and Θ is the parameter vector. This function give
 As a general approach, 0.5 is used as an example of the threshold here, but in actual application, different thresholds will be selected depending on the situation.
 Well, we have all the functions we want to use. The next step is to find the parameter Θ based on the given training set. To find the parameter  Θ, the first thing is to define the cost function, which is the objective function.
 Assuming:
+
 ![](http://m.qpic.cn/psc?/V11zaUPV2EE2Gc/8YUQ4vKPKp.vxIKbDZcdtvqLUcgdf2RVmuO6b4fP.fMcVPL7NGFG3KmxZGJssrdY1094Soc5eiCIHtZON7mCGA!!/mnull&bo=wgBCAAAAAAADB6I!&rf=photolist&t=5)
 
 Transfer the above two formulas in general form:
+
 ![](http://m.qpic.cn/psc?/V11zaUPV2EE2Gc/8YUQ4vKPKp.vxIKbDZcdtvLwmwm6Rg.XpgfDSE7dcbj77CJVvwrP*6TD4xcLVBph.FqbTw2j5UzcNdKCG1i6CQ!!/mnull&bo=AQEtAAAAAAADBw8!&rf=photolist&t=5)
 
 Next, we will use maximum likelihood estimation to estimate the parameters based on the given training set.
@@ -171,6 +180,7 @@ To simplify the operation, we take a logarithm on both sides of the above equati
 ![](http://m.qpic.cn/psc?/V11zaUPV2EE2Gc/8YUQ4vKPKp.vxIKbDZcdtsB*cvo4tifaw5LlvXH1cBxlMpBmDBFacY1wc1mf6goFKeUkftmrAKcyEeO8lMq*lQ!!/mnull&bo=zAFCAAAAAAADB60!&rf=photolist&t=5)
 
 In the actual solution, the cost function should be minimized, so the cost function is defined as:
+
 ![](http://m.qpic.cn/psc?/V11zaUPV2EE2Gc/8YUQ4vKPKp.vxIKbDZcdtvrXhRT6KeIiRxc1RwieBHKOp3KNEAQ6*8N3RzEvHjFKFfJKhQkvI0vaQKgKPxeq4A!!/mnull&bo=5AFMAAAAAAADB4s!&rf=photolist&t=5)
 
 The next step is to find the extreme value. The methods commonly used in logistic regression learning are the gradient descent method and the Newton method, which are not outlined here.
@@ -179,7 +189,10 @@ The next step is to find the extreme value. The methods commonly used in logisti
 The evaluation of machine learning model effects mainly includes the following indicators: Accuracy, Precision, and Recall are common basic indicators.
 To understand the meaning of these indicators, you first need to understand two samples: (1) Positive sample: that is, a sample that belongs to a certain category (generally the one requested). In this case, it was a credit card that was stolen; (2) Negative samples: samples that do not fall into this category. In this case, it is a credit card that has not been stolen.
 So we can get the following table:
+
 ![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/8YUQ4vKPKp.vxIKbDZcdtkF4iS5jktYG*6M0K*LfjccMZUWvWlNsyk2DTyNWCzOWE3g10y*B5.6CSd31y1*HbA!!/mnull&bo=YgMbAQAAAAARB0s!&rf=photolist&t=5)
+
+
 True Positives, TP：The prediction is a positive sample, and the actual number of features is also a positive sample;
 False Positives,FP：The prediction is a positive sample, but the actual number of features is a negative sample;
 True Negatives,TN：The prediction is a negative sample, and the actual number of features is also a negative sample;
@@ -189,9 +202,11 @@ According to the above definitions of four types of situations, relevant model e
 2)	Precision：TP / (TP + FP);
 3)	Recall：TP / (TP + FN);
 The calculation and meaning of Precision and Recall can also be intuitively understood through the following picture.
-<div align=center>![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/8YUQ4vKPKp.vxIKbDZcdtiIu6TSvfZe9UjCdZ9DxtF2qX8l8uhkKVDYxJw.jtqv6kqDbpccAqp3oLsuJf*wvdQ!!/mnull&bo=pgIUAgAAAAARB4I!&rf=photolist&t=5)
-Schematic diagram of model evaluation index calculation
-<div align=left>
+
+![](http://m.qpic.cn/psc?/V11zaUPV2EE2Gc/8YUQ4vKPKp.vxIKbDZcdtq.EZugXycvz98LG7yOETXVOh8YwVfWUZ27uPiQyXqZXBycUqbcvPnRStwEVZjvYfg!!/mnull&bo=hAFMAQAAAAADB.o!&rf=photolist&t=5)
+
+(Schematic diagram of model evaluation index calculation)
+
 
 Different indicators have different emphases, and Accuracy is the most commonly used indicator, which can generally measure the performance of a prediction. Precision is concerned about the correct proportion of positive samples predicted by the model, that is, the accuracy of the model prediction. Recall pays attention to the proportion of positive samples (TP) predicted by the model in all positive samples, that is, whether the model can find all positive samples and find them incomplete.
 The focus is different in different situations. In the scenario of recognizing spam, it may be biased towards Precision, because we don’t want many normal emails to be killed by mistake, which will cause serious problems. In the field of financial risk control, most of them prefer Recall. We hope that the system can screen out all risky behaviors or users, and then hand it over to human identification to omit one that may cause disastrous consequences.Two other commonly used indicators to evaluate the pros and cons of a Binary Classifier are ROC (Receiver Operating Characteristic) curve and AUC (Area Under Curve).
@@ -202,23 +217,28 @@ FPR(False Postive Rate): FP/(FP+TN)，represents the proportion of actual negati
 For the logistic regression classifier used in this section, which gives the probability of being a positive class for each instance, then by setting a threshold such as 0.6, the probability is greater than or equal to 0.6 for the positive class, and less than 0.6 for the negative class. Correspondingly, a set of (FPR, TPR) can be calculated and corresponding coordinate points can be obtained in the plane. As the threshold value gradually decreases, more and more instances are classified as positive classes, but these positive classes are also doped with true negative instances, that is, TPR and FPR will increase at the same time. When the threshold is the largest, the corresponding coordinate point is (0,0), and when the threshold is the smallest, the corresponding coordinate point is (1,1).
 As shown in the following figure, the solid line in the figure is the ROC curve, and each point on the line corresponds to a threshold.
 
-<div align=center>![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/8YUQ4vKPKp.vxIKbDZcdtkaBrvN5ZD3C6o8p0WwtXyQOsl097nNKrLyDZllnU*d*v7WkC8N4VYsJ7QaAaZyMog!!/mnull&bo=awFlAQAAAAARBz4!&rf=photolist&t=5)
-ROC curve
-<div align=left>
+![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/8YUQ4vKPKp.vxIKbDZcdtkaBrvN5ZD3C6o8p0WwtXyQOsl097nNKrLyDZllnU*d*v7WkC8N4VYsJ7QaAaZyMog!!/mnull&bo=awFlAQAAAAARBz4!&rf=photolist&t=5)
+
+(ROC curve)
+
 
 The ideal goal of the model is TPR = 1, FPR = 0, which is the (0,1) point in the figure, so the closer the ROC curve is to the (0,1) point, the better it deviates from the 45-degree diagonal.
 AUC (Area under Curve) is the area under the ROC curve between 0.1 and 1. In terms of specific meaning, the AUC value is a probability value. When a positive sample and a negative sample are randomly selected, the probability that the current classification algorithm ranks this positive sample in front of the negative sample according to the calculated Score value is the AUC value. The current classification algorithm is more likely to rank positive samples in front of negative samples, so that it can better classify.
 
 (2)	Logistic regression results and evaluation
+
 We use 70% of the samples as the training set and 30% of the samples as the test set, use the training set to train the logistic regression, and pass the test set to test the model's performance indicators as follows:
+
 ![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/8YUQ4vKPKp.vxIKbDZcdto4qjbLXX6MTuOWat4*lbRIka.sIrc7F1Xe1j9dy3S.r6*DxkxMXHfzW1kTMalvQIQ!!/mnull&bo=YgMpAQAAAAARB3k!&rf=photolist&t=5)
 
 The result of using logistic regression alone is not particularly good. Although Accuracy is relatively high, other indicators are relatively low, and the recall rate (Recall) is only 0.61, a large number of 1s are misjudged as 0, and it is predicted to shift to a large proportion of 0 for classification. This is mainly because the positive and negative samples in this article are extremely unbalanced, and it is precisely because of the existence of a large number of negative samples that the Accuracy indicator is artificially high, but the actual effect of the model is not good.
 In the following part, we will focus on solving the problem of sample imbalance.
 
 (3)	SMOTE oversampling + logistic regression results and evaluation
+
 The default threshold for most models is the median output value. For example, the output range of logistic regression is [0,1]. When the output of a sample is greater than 0.5, it will be classified as a positive example, and the reverse is a negative example. When the categories of data are unbalanced, the use of the default threshold may cause all outputs to be counter-examples, producing falsely high accuracy and causing classification failure. The data set used in this article contains data submitted by European cardholders using credit cards in September 2013. This data set shows transactions that occurred within two days, of which 492 of 284,807 transactions were stolen. The data set is very unbalanced, with positive categories (stolen and brushed) accounting for 0.172% of all transactions.
 In practical applications, there are four main methods to solve the problem of sample imbalance:
+
 1)	Adjust the threshold to make the model more sensitive to fewer categories.
 2)	Choose an appropriate evaluation standard, such as ROC, instead of accuracy.
 3)	Undersampling: Undersampling discards a lot of data, but it also has the problem of overfitting, just like oversampling.
