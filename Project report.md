@@ -81,6 +81,7 @@ The amount of credit card swiping transaction appears to be scattered and small 
 ![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/yCLjTthScCcjc0qcPSGYBg5c0T*RB8HxVxumFDIC*GbeT9FO5IMG4rTkVhSTtjcEcw5kxZANziypDyJl7aMKpah*DziDnH*p4CAIYKPP.S4!/b&bo=4QRoAQAAAAARF6w!&rf=viewer_4&t=5)
 Amount of transaction of positive and negative samples
 
+
 **6)	Positive and negative sample trading time distribution**
 
 As the normal transaction time distribution diagram shows, between there is a high-frequency period of credit card consumption during 9 am and 11 pm every day.
@@ -89,11 +90,13 @@ As the time distribution of fraudulent transactions show, the highest number of 
 <center>Distribution of transaction time of credit card swiping sample</center>
 
 
+
 **7)	Relationship between positive and negative sample transaction amount and transaction time**
 
 It can be seen from the figure that in the sample of credit card swiping, the outliers occurred during the period when the customer used the credit card to spend at a lower frequency. At the same time, the maximum amount of credit card swiping is only 2,125.87 US dollars.
 ![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/yCLjTthScCcjc0qcPSGYBmsuzUMfNPIv7QCzvaLWE7NAwCaYDOCUZZnbn3AO245qNpdrtODNThd1tsPhPlaRNvlzlyNvYvIhoyEIrIUJM9c!/b&bo=2wQdAgAAAAARF.A!&rf=viewer_4&t=5)
 <center>Relation between amount and time of fraudulent transaction</center>
+
 
 **8)	Distribution of different variables on positive and negative samples**
 
@@ -129,7 +132,8 @@ Finally, through 3D display, we can a better visual effect.
 
 Logistic regression is the appropriate regression analysis to conduct when the dependent variable is dichotomous (binary).  Like all regression analyses, the logistic regression is a predictive analysis.  Logistic regression is used to describe data and to explain the relationship between one dependent binary variable and one or more nominal, ordinal, interval or ratio-level independent variables.
 The sigmoid function, also called the sigmoidal curve (von Seggern 2007, p. 148) or logistic function, is the function
-<div align=center>![](http://m.qpic.cn/psc?/V11zaUPV2EE2Gc/8YUQ4vKPKp.vxIKbDZcdtoE.mqkpDrnr8oVv0FrwTO7L59FzliSEA8BRnmbvbi72oZq4aVjGn5gbRrUlJRYdDw!!/mnull&bo=kQAxAAAAAAADB4I!&rf=photolist&t=5)
+
+![](http://m.qpic.cn/psc?/V11zaUPV2EE2Gc/8YUQ4vKPKp.vxIKbDZcdtoE.mqkpDrnr8oVv0FrwTO7L59FzliSEA8BRnmbvbi72oZq4aVjGn5gbRrUlJRYdDw!!/mnull&bo=kQAxAAAAAAADB4I!&rf=photolist&t=5)
 
 Function image of Sigmoid function is:
 ![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/8YUQ4vKPKp.vxIKbDZcdtmPdxfHJAHUjcTegHGqLXmsYw6sOj2WUvky3K4a018zKKCwYwwADLsLyMV1b6VS4vQ!!/mnull&bo=5gFKAQAAAAARB5w!&rf=photolist&t=5)
