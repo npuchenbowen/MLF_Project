@@ -34,11 +34,10 @@ The data set used in this project is a group of European cardholders ’credit c
 
 The data set contains a total of 31 indicators. The indicator Class is the response variable. If the transaction is a fraudulent transaction, the value is 1. If the transaction is a normal transaction, the value is 0. The indicator Time describes the time when the transaction occurs. Specifically, it is the interval between the time of each transaction and the time of the first transaction; the indicator Amount is the amount of the transaction; the indicators v1, v2-v28 are obtained through PCA. Due to the privacy issue, the meaning of v1-v28 are not available.
 
-(Descriptive statistics of primary indicators)
 
 ![](http://m.qpic.cn/psc?/V11zaUPV2EE2Gc/8YUQ4vKPKp.vxIKbDZcdtk2gilby.ETBA2v*SvSmiEv4iqZir4kBxVQZhRorC7eC5P.zzc8jLllD5LvhVtWkHw!!/mnull&bo=IgazAgAAAAADB7c!&rf=photolist&t=5)
 
-
+(Descriptive statistics of primary indicators)
 
 ------------
 
