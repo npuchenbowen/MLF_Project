@@ -300,12 +300,18 @@ As shown in the figure below, AutoEncoder is mainly composed of three parts: Inp
 The core concept of the automatic encoder algorithm is: by establishing the Encode and Decode processes (actually encoder and decoder) in the hidden layer, the input and output are getting closer and closer, and the input data is encoded and decoded by the hidden layer, and the output a result consistent with the input data.
 Although this concept is theoretically feasible, the actual operation will not be so ideal. In order to allow the automatic encoder to learn the useful features of the data, it cannot be designed as an encoder with 100% copy input (theoretically, it cannot be done because the number of layers is different), so some constraints must be specified in the hidden layer. The Autoencoder can only be copied approximately.
 The common constraints of this model are as follows:
-	The dimension of the output layer is much larger than the hidden layer;
-	Use the output function to recover the input data by minimizing the error function of the input and output;
-	Because this is an unsupervised learning model, the data is unlabeled, so the source of the error is the difference between the reconstruction and the input.
+
+(1)The dimension of the output layer is much larger than the hidden layer;
+
+(2)Use the output function to recover the input data by minimizing the error function of the input and output;
+
+(3)Because this is an unsupervised learning model, the data is unlabeled, so the source of the error is the difference between the reconstruction and the input.
+
 The Autoencoder can be regarded as compressing the data, from the original "n-dimensional" to "m-dimensional", where m is the number of hidden layer neurons. Then, when necessary, recover the data with the least loss.
-	 AutoEncoder Algorithm Process
-	 
+
+(3)	AutoEncoder Algorithm Process
+
+
 1) The Autoencoder automatic encoding network is to restore the compressed data, that is to learn a set of h_(W,b) (x)≈x, which is the parameter to be learned by the algorithm.
 
 2) Restoring the data should make the loss as small as possible. The objective function is specified as:
@@ -327,46 +333,61 @@ At the same time, according to previous experiments, we have noticed that Autoen
 We used the data from the previous oversampling experiment to reduce the dimension to 3 dimensions using TSNE and visualize it. The results show that the distinction between positive and negative samples is obvious.
 
 ![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/8YUQ4vKPKp.vxIKbDZcdtuX5wEHPiPkDzt*FuQZ1tq.nazFqWhycdPnTuh53MjL5JlWLv9o*kh3LklThU3gWRA!!/mnull&bo=DANnAQAAAAARB1k!&rf=photolist&t=5)
-TSNE dimension reduction results
+
+(TSNE dimension reduction results)
 
 The TSNE method used here is currently the most effective data dimensionality reduction and visualization method. When we want to classify high-dimensional data, it is not clear whether this data set has good separability (that is, between similar The interval is small, the interval between different types is large), you can use TSNE to project into a 2D or 3D space to observe. If it is separable in the low-dimensional space, the data is separable; if it is not separable in the high-dimensional space, it may be that the data is inseparable, or it may be simply because it cannot be projected into the low-dimensional space.
 Next we build AutoEncoder and visualize the expressed features. The data characteristics before AutoEncoder expression are as follows:
 
+
 ![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/8YUQ4vKPKp.vxIKbDZcdtnvnUrhoMtW7ovcafFZl0hJ6iXpPRAzJygutuLc0*k6u9biM3X8MKH5P17xyYe6scQ!!/mnull&bo=IAO1AQAAAAARB6c!&rf=photolist&t=5)
-Feature distribution without self-encoder
+
+(Feature distribution without self-encoder)
 
 The data characteristics after AutoEncoder expression are as follows:
 ![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/8YUQ4vKPKp.vxIKbDZcdtkWWHfwAZH.4Yv6IxKjvCTdWHS9RhKzeWoMqrX.5PNnJfxgtRQ1OfOgdZ4xAatc5ZQ!!/mnull&bo=DANnAQAAAAARB1k!&rf=photolist&t=5)
-Feature distribution via autoencoder
+
+(Feature distribution via autoencoder)
 
 In comparison, the distinction between positive and negative samples is slightly improved.
 Entering the data into Logistic regression, we get Accuracy score of 0.99391407, Roc_auc score of 0.87153955, Recall score of 0.74324324, Precision score of 0.8870967, the remaining parameters are as follows:
+
 ![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/8YUQ4vKPKp.vxIKbDZcdtip1SQvfVQmtzixsMJxM66zB7bXhL9Eqbskh9vO6buYEWTr3OTsgf67WnFvzsA3BDQ!!/mnull&bo=hgNPAQAAAAARB*s!&rf=photolist&t=5)
-Model performance indicators
+
+(Model performance indicators)
 
 And get the following picture:
+
 ![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/8YUQ4vKPKp.vxIKbDZcdtuO.9Gsi2xx4jAcdvS2NVnKA9xcEcamNDSpmRNsxqxgXQWxSoIYjDZ7hXCjNsopu9A!!/mnull&bo=ngKRAQAAAAARBzw!&rf=photolist&t=5)
-The result of auto-encoder combined with Logistic regression
+
+(The result of auto-encoder combined with Logistic regression)
 
 Through this image comparison, it is found that the effect obtained by AutoEncoder + Logistic regression is significantly better than pure Logistic regression, but the effect is not as good as oversampling combined with Logistic regression method (because the area under the curve becomes significantly smaller).
 
 
 **7. Ultra weapon——Two-pronged**
 In order to better identify fraud, we use a two-pronged weapon. We combined SMOTE oversampling with AutoEncoder and Logistic Regression. The results are shown in the following table: 
+
 ![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/8YUQ4vKPKp.vxIKbDZcdti0eKy4iGs0wW0NKoRw.JAQsfoYS9v.SGa3w*EytJxeAKaMd61JgkSk8GXEHIO2R4w!!/mnull&bo=egN*AQAAAAARBzc!&rf=photolist&t=5)
-Performance score of our ultra weapon
+
+(Performance score of our ultra weapon)
 
 From the table, we can see that when we combined the three methods, we got better results in terms of Precision, Recall and F1-score. Under the test sample set containing 30% data, all indicators exceeded 0.99. 
 
 ![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/8YUQ4vKPKp.vxIKbDZcdtgzj8mLqqb9KB*xROfALov0Brt8R8gSJyDfpe*o1kUm*RvA28BmH.VAhSwf9YjrVzg!!/mnull&bo=AgWlAgAAAAARB5A!&rf=photolist&t=5)
-Precision-Recall Curve of the ultra weapon
+
+(Precision-Recall Curve of the ultra weapon)
 
 From the figure, we can see that when the threshold changes from 0.1 to 0.9, the AUC is always above 0.98. It can be seen that our results are very little affected by the threshold and have strong robustness. 
 
 **7. Conclusion and further improvement**
+
 (1) Conclusion
+
 In this project, we build a Machine Learning model to detect credit card fraud. We first used SMOTE oversampling to deal with the data imbalance. Then we used the unsupervised learning method AutoEncoder to extract important features of the data set to improve the robustness of the model. Finally, the extracted features were input into the Logistic Regression model for training to obtain our final credit card fraud detection model. Finally, the model we obtained has a high AUC and f1-score in both the training set and the test set, and is robust to different thresholds.
+
 (2) Further improvement
+
 In the process of model building, we manually process the data features. But in practice, the data may contain millions of features, so automated feature engineering is important.
 In this project, we did not obtain enough information dimensions. However, in practice, more types of data, such as credit investigation data of the PBC (People's Bank of China) and user behavior data in Internet companies, can be used as important data for credit card fraud detection model.
 More advanced algorithms such as relational network, streaming active learning strategy and deep learning can be applied to credit card fraud detection.
