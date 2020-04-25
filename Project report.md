@@ -1,14 +1,12 @@
 # PHBS_MLF_2019_Project
-## Catching the mouse_identify fraudulent credit card transactions
+##Catching the mouse_identify fraudulent credit card transactions
+Yuchuan Xu (1801212958)
+Yang Cao (1801212825)
+Alimujiang (1801212778)
+Bowen Chen (1801212827)
 
-### Yuchuan Xu (1801212958)
-### Yang Cao (1801212825)
-### Alimujiang (1801212778)
-### Bowen Chen (1801212827)
 
-
-**1.Research background**
-
+**1.	Research background**
 In recent years, there have been a lot of credit card swiping incidents. According to research and statistics from Nielsen Consulting, in 2017, global credit card fraud losses amounted to 22.8 billion US dollars and are expected to continue to grow [1]. Although credit card swiping transactions account for only a very small portion of all credit card transactions, once it occurs, it will cause unnecessary losses to the credit card holder, and sometimes the amount of the loss is huge.
 Specifically, credit card swiping refers to illegal or criminal acts in which criminals copy other people ’s credit cards in various illegal forms, thereby stealing cardholder ’s funds. In real life, the main manifestation is that the cardholder’s fund is stolen by an unfamiliar third party without the loss of the credit card and the payment password is not informed to others.
 
@@ -23,7 +21,7 @@ The data set used in this project is a group of European cardholders ’credit c
 2)	Variables
 The data set contains a total of 31 indicators. The indicator Class is the response variable. If the transaction is a fraudulent transaction, the value is 1. If the transaction is a normal transaction, the value is 0. The indicator Time describes the time when the transaction occurs. Specifically, it is the interval between the time of each transaction and the time of the first transaction; the indicator Amount is the amount of the transaction; the indicators v1, v2-v28 are obtained through PCA. Due to the privacy issue, the meaning of v1-v28 are not available.
 ###  Descriptive statistics of primary indicators
-![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/8YUQ4vKPKp.vxIKbDZcdtu10.U2ROYCVBNkXnnnTRTynoBH6eMwdHJHLNLgMhHppfMAltgVX69w9dzUQTtEvVw!!/b&bo=pgM5AwAAAAARB68!&rf=viewer_4&t=5)
+![](http://m.qpic.cn/psc?/V11zaUPV2EE2Gc/8YUQ4vKPKp.vxIKbDZcdtkyCk7SnMSoP0FRtKWMKmlDMQDjRUWrmu8Fu2MuH3Hxz9.ceAS5idFQznWnW7B1jdg!!/mnull&bo=6APVAgAAAAADBx4!&rf=photolist&t=5)
 
 **4.	Feature selection**
 **1)	Data cleaning**
@@ -89,7 +87,7 @@ Finally, through 3D display, we can a better visual effect.
 
 Logistic regression is the appropriate regression analysis to conduct when the dependent variable is dichotomous (binary).  Like all regression analyses, the logistic regression is a predictive analysis.  Logistic regression is used to describe data and to explain the relationship between one dependent binary variable and one or more nominal, ordinal, interval or ratio-level independent variables.
 The sigmoid function, also called the sigmoidal curve (von Seggern 2007, p. 148) or logistic function, is the function
-g(z)=  1/(1+e^(-z) )
+![](http://m.qpic.cn/psc?/V11zaUPV2EE2Gc/8YUQ4vKPKp.vxIKbDZcdtoE.mqkpDrnr8oVv0FrwTO7L59FzliSEA8BRnmbvbi72oZq4aVjGn5gbRrUlJRYdDw!!/mnull&bo=kQAxAAAAAAADB4I!&rf=photolist&t=5)
 Function image of Sigmoid function is:
 ![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/8YUQ4vKPKp.vxIKbDZcdtmPdxfHJAHUjcTegHGqLXmsYw6sOj2WUvky3K4a018zKKCwYwwADLsLyMV1b6VS4vQ!!/mnull&bo=5gFKAQAAAAARB5w!&rf=photolist&t=5)
 Sigmoid function
@@ -97,19 +95,31 @@ Sigmoid function
 A sigmoid function is a type of activation function, and more specifically defined as a squashing function. Squashing functions limit the output to a range between 0 and 1, making these functions useful in the prediction of probabilities.
 Sigmoidal functions are frequently used in machine learning, specifically in the testing of artificial neural networks, as a way of understanding the output of a node or “neuron.” For example, a neural network may attempt to find a desired solution given a set of inputs. A sigmoidal function will determine the output and that output will be used as the input for the following node. This process will repeat until the solution to the original problem is found.
 Based on the sigmoid function, the assumed function form of the logic function is as follows:
-P(y=1│x;Θ)= g(Θ^T x)=  1/(1+e^(-Θ^T x) )
+
+![](http://m.qpic.cn/psc?/V11zaUPV2EE2Gc/8YUQ4vKPKp.vxIKbDZcdtoZoM9ogIVn2lonJNYKLbcEwvPNGxgEGzuVDu.kITSdvf9N0Cgc1dpw5eFceFSZIhw!!/mnull&bo=IAE8AAAAAAADBz8!&rf=photolist&t=5)
+
 Where x is the input variable and Θ is the parameter vector. This function gives a probability value, that is, given x and Θ, the probability of y = 1. But logistic regression gives classification results, not just probability values, so here a decision function is needed.
+
+![](http://m.qpic.cn/psc?/V11zaUPV2EE2Gc/8YUQ4vKPKp.vxIKbDZcdtsZhRSivKx*X659cXnB6jYZIyyoWzf2MpAC0Brkpcr21IMmlMtHgtMKDsQdELS7IcA!!/mnull&bo=1AA.AAAAAAADB8g!&rf=photolist&t=5)
+
 As a general approach, 0.5 is used as an example of the threshold here, but in actual application, different thresholds will be selected depending on the situation.
 Well, we have all the functions we want to use. The next step is to find the parameter Θ based on the given training set. To find the parameter  Θ, the first thing is to define the cost function, which is the objective function.
 Assuming:
-P(y=1│x;Θ)= π（x）
-P(y=0│x;Θ)= 1-π（x）
+![](http://m.qpic.cn/psc?/V11zaUPV2EE2Gc/8YUQ4vKPKp.vxIKbDZcdtvqLUcgdf2RVmuO6b4fP.fMcVPL7NGFG3KmxZGJssrdY1094Soc5eiCIHtZON7mCGA!!/mnull&bo=wgBCAAAAAAADB6I!&rf=photolist&t=5)
 
 Transfer the above two formulas in general form:
-P(y│x;Θ)= 〖π（x）〗^y 〖(1-π（x)）〗^((1-y))
+![](http://m.qpic.cn/psc?/V11zaUPV2EE2Gc/8YUQ4vKPKp.vxIKbDZcdtvLwmwm6Rg.XpgfDSE7dcbj77CJVvwrP*6TD4xcLVBph.FqbTw2j5UzcNdKCG1i6CQ!!/mnull&bo=AQEtAAAAAAADBw8!&rf=photolist&t=5)
 
 Next, we will use maximum likelihood estimation to estimate the parameters based on the given training set.
 
+![](http://m.qpic.cn/psc?/V11zaUPV2EE2Gc/8YUQ4vKPKp.vxIKbDZcdtkyW0WymMiAjEIWz09UYfGSd1M0yVjMgP**BkLA7gInD3YRH26MzkJuxsI8xyB.DTQ!!/mnull&bo=*AE.AAAAAAADB.E!&rf=photolist&t=5)
+
+To simplify the operation, we take a logarithm on both sides of the above equation.
+
+![](http://m.qpic.cn/psc?/V11zaUPV2EE2Gc/8YUQ4vKPKp.vxIKbDZcdtsB*cvo4tifaw5LlvXH1cBxlMpBmDBFacY1wc1mf6goFKeUkftmrAKcyEeO8lMq*lQ!!/mnull&bo=zAFCAAAAAAADB60!&rf=photolist&t=5)
+
+In the actual solution, the cost function should be minimized, so the cost function is defined as:
+![](http://m.qpic.cn/psc?/V11zaUPV2EE2Gc/8YUQ4vKPKp.vxIKbDZcdtvrXhRT6KeIiRxc1RwieBHKOp3KNEAQ6*8N3RzEvHjFKFfJKhQkvI0vaQKgKPxeq4A!!/mnull&bo=5AFMAAAAAAADB4s!&rf=photolist&t=5)
 
 The next step is to find the extreme value. The methods commonly used in logistic regression learning are the gradient descent method and the Newton method, which are not outlined here.
 
@@ -274,4 +284,4 @@ https://nilsonreport.com/upload/content promo/The Nilson Report Issue 1118.pdf
 [6] A. Dal Pozzolo, G. Boracchi, O. Caelen, C. Alippi, G. Bontempi, Credit card fraud 	detection: a realistic modeling and a novel learning strategy, IEEE Trans. Neural 	Netw. Learn. Syst. 29 (2017) 3784–3797.
 [7] N. Sethi, A. Gera, A revived survey of various credit card fraud detection 	techniques, Int. J. Comput. Sci. Mobile Comput. 3 (4) (2014) 780–791.
 [8] P.R. Shimpi, V. Kadroli, Survey on credit card fraud detection techniques, Int. J. 	Eng. Comput. Sci. 4 (11) (2015) 15010–15015.
-
+[9]Lebichot B., Le Borgne YA., He-Guelton L., Oblé F., Bontempi G. (2020) 	Deep-Learning Domain Adaptation Techniques for Credit Cards Fraud Detection. 	In: Oneto L., Navarin N., Sperduti A., Anguita D. (eds) Recent Advances in Big 	Data and Deep Learning. INNSBDDL 2019. Proceedings of the International 	Neural Networks Society, vol 1. Springer, Cham
