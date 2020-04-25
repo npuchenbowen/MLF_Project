@@ -1,6 +1,5 @@
 # PHBS_MLF_2019_Project
-## Catching the mouse_identify fraudulent credit card transactions
-
+##Catching the mouse_identify fraudulent credit card transactions
 Yuchuan Xu (1801212958)
 Yang Cao (1801212825)
 Alimujiang (1801212778)
@@ -8,7 +7,6 @@ Bowen Chen (1801212827)
 
 
 **1.	Research background**
-
 In recent years, there have been a lot of credit card swiping incidents. According to research and statistics from Nielsen Consulting, in 2017, global credit card fraud losses amounted to 22.8 billion US dollars and are expected to continue to grow [1]. Although credit card swiping transactions account for only a very small portion of all credit card transactions, once it occurs, it will cause unnecessary losses to the credit card holder, and sometimes the amount of the loss is huge.
 Specifically, credit card swiping refers to illegal or criminal acts in which criminals copy other people ’s credit cards in various illegal forms, thereby stealing cardholder ’s funds. In real life, the main manifestation is that the cardholder’s fund is stolen by an unfamiliar third party without the loss of the credit card and the payment password is not informed to others.
 
@@ -17,7 +15,6 @@ Specifically, credit card swiping refers to illegal or criminal acts in which cr
 
 
 **2.	Motivation**
-
 Since credit card swiping would cause financial losses to the holders and affect the efficiency of financial institutions, it is necessary to design an automatic fraud detection system for high-precision fraud detection. This project hopes to use a set of credit card consumption data sets to train a classifier to distinguish whether the user's credit card use records are fraudulent information, which could help the credit card company effectively identify fraudulent credit card transactions.
 
 ------------
@@ -25,26 +22,31 @@ Since credit card swiping would cause financial losses to the holders and affect
 
 
 **3.	Data description**
-
-1)outline
-
+1)	outline
 The data set used in this project is a group of European cardholders ’credit card transaction data in September 2013 (which has been vectorized). This data set contains transactions that occurred within two days, a total of 284,807, of which 492 belong Piracy transactions, the rest belong to normal transactions, the data set is very unbalanced, piracy transactions only account for 0.172% of all transactions. The data set contains 31 descriptive indicators. The introduction and descriptive statistics of the indicators are shown in the following section.
 
-2)Variables
-
+2)	Variables
 The data set contains a total of 31 indicators. The indicator Class is the response variable. If the transaction is a fraudulent transaction, the value is 1. If the transaction is a normal transaction, the value is 0. The indicator Time describes the time when the transaction occurs. Specifically, it is the interval between the time of each transaction and the time of the first transaction; the indicator Amount is the amount of the transaction; the indicators v1, v2-v28 are obtained through PCA. Due to the privacy issue, the meaning of v1-v28 are not available.
 
 <center> Descriptive statistics of primary indicators </center>
+
 <div align=center>![](http://m.qpic.cn/psc?/V11zaUPV2EE2Gc/8YUQ4vKPKp.vxIKbDZcdtkyCk7SnMSoP0FRtKWMKmlDMQDjRUWrmu8Fu2MuH3Hxz9.ceAS5idFQznWnW7B1jdg!!/mnull&bo=6APVAgAAAAADBx4!&rf=photolist&t=5)
 
 
 ------------
 
 <div align=left>
+
+
 **4.	Feature selection**
+
 **1)	Data cleaning**
+
 We check the missing data by calling the Missingno tool in Python. As shown in the following figure, the data is very complete and does not require preprocessing operations such as data filling.
+
+
 ![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/yCLjTthScCcjc0qcPSGYBgdSPT36VG3HpWmcbhuXi16AgrNuCoTJr25m0U.ty6kmlPQ3xzQesdAu.Ney6*m5igYvWX9eqq741WcjbEzfuEo!/b&bo=BAb2AgAAAAARF9Y!&rf=viewer_4&t=5)
+
 <center> Data loss </center>
 
 **2)	Data scaling**
@@ -309,12 +311,14 @@ From the figure, we can see that when the threshold changes from 0.1 to 0.9, the
 (1) Conclusion
 In this project, we build a Machine Learning model to detect credit card fraud. We first used SMOTE oversampling to deal with the data imbalance. Then we used the unsupervised learning method AutoEncoder to extract important features of the data set to improve the robustness of the model. Finally, the extracted features were input into the Logistic Regression model for training to obtain our final credit card fraud detection model. Finally, the model we obtained has a high AUC and f1-score in both the training set and the test set, and is robust to different thresholds.
 (2) Further improvement
-	In the process of model building, we manually process the data features. But in practice, the data may contain millions of features, so automated feature engineering is important.
-	In this project, we did not obtain enough information dimensions. However, in practice, more types of data, such as credit investigation data of the PBC (People's Bank of China) and user behavior data in Internet companies, can be used as important data for credit card fraud detection model.
-	More advanced algorithms such as relational network, streaming active learning strategy and deep learning can be applied to credit card fraud detection.
+In the process of model building, we manually process the data features. But in practice, the data may contain millions of features, so automated feature engineering is important.
+In this project, we did not obtain enough information dimensions. However, in practice, more types of data, such as credit investigation data of the PBC (People's Bank of China) and user behavior data in Internet companies, can be used as important data for credit card fraud detection model.
+More advanced algorithms such as relational network, streaming active learning strategy and deep learning can be applied to credit card fraud detection.
 
 
 **Reference**
+
+
 [1]HSN Consultants, Inc.: The Nilson report (consulted on 2018-10-23) (2017).
 https://nilsonreport.com/upload/content promo/The Nilson Report Issue 1118.pdf
 [2]Carcillo, F., Dal Pozzolo, A., Le Borgne, Y.A., Caelen, O., Mazzer, Y., Bontempi, 	G.: Scar_: a scalable framework for streaming credit card fraud detection with 	spark. Information fusion 41, 182{194 (2018)
@@ -325,3 +329,4 @@ https://nilsonreport.com/upload/content promo/The Nilson Report Issue 1118.pdf
 [7] N. Sethi, A. Gera, A revived survey of various credit card fraud detection 	techniques, Int. J. Comput. Sci. Mobile Comput. 3 (4) (2014) 780–791.
 [8] P.R. Shimpi, V. Kadroli, Survey on credit card fraud detection techniques, Int. J. 	Eng. Comput. Sci. 4 (11) (2015) 15010–15015.
 [9]Lebichot B., Le Borgne YA., He-Guelton L., Oblé F., Bontempi G. (2020) 	Deep-Learning Domain Adaptation Techniques for Credit Cards Fraud Detection. 	In: Oneto L., Navarin N., Sperduti A., Anguita D. (eds) Recent Advances in Big 	Data and Deep Learning. INNSBDDL 2019. Proceedings of the International 	Neural Networks Society, vol 1. Springer, Cham
+
