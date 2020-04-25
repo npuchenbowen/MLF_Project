@@ -1,5 +1,6 @@
 # PHBS_MLF_2019_Project
-##Catching the mouse_identify fraudulent credit card transactions
+## Catching the mouse_identify fraudulent credit card transactions
+
 Yuchuan Xu (1801212958)
 Yang Cao (1801212825)
 Alimujiang (1801212778)
@@ -30,7 +31,8 @@ The data set contains a total of 31 indicators. The indicator Class is the respo
 
 <center> Descriptive statistics of primary indicators </center>
 
-<div align=center>![](http://m.qpic.cn/psc?/V11zaUPV2EE2Gc/8YUQ4vKPKp.vxIKbDZcdtkyCk7SnMSoP0FRtKWMKmlDMQDjRUWrmu8Fu2MuH3Hxz9.ceAS5idFQznWnW7B1jdg!!/mnull&bo=6APVAgAAAAADBx4!&rf=photolist&t=5)
+![](http://m.qpic.cn/psc?/V11zaUPV2EE2Gc/8YUQ4vKPKp.vxIKbDZcdtkyCk7SnMSoP0FRtKWMKmlDMQDjRUWrmu8Fu2MuH3Hxz9.ceAS5idFQznWnW7B1jdg!!/mnull&bo=6APVAgAAAAADBx4!&rf=photolist&t=5)
+
 
 
 ------------
@@ -317,8 +319,6 @@ More advanced algorithms such as relational network, streaming active learning s
 
 
 **Reference**
-
-
 [1]HSN Consultants, Inc.: The Nilson report (consulted on 2018-10-23) (2017).
 https://nilsonreport.com/upload/content promo/The Nilson Report Issue 1118.pdf
 [2]Carcillo, F., Dal Pozzolo, A., Le Borgne, Y.A., Caelen, O., Mazzer, Y., Bontempi, 	G.: Scar_: a scalable framework for streaming credit card fraud detection with 	spark. Information fusion 41, 182{194 (2018)
