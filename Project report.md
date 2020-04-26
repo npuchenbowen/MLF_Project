@@ -1,10 +1,12 @@
 # PHBS_MLF_2019_Project
 ## Catching the mouse_identify fraudulent credit card transactions
 
-Yuchuan Xu (1801212958)
-Yang Cao (1801212825)
-Alimujiang (1801212778)
-Bowen Chen (1801212827)
+### Members 
+[Yuchuan Xu (1801212958)](https://github.com/YuchuanXu-1801212958/YuchuanXu-1801212958-PHBS_MLF_2019)  
+[Yang Cao (1801212825)](https://github.com/crobiny/MLF)  
+[Alimujiang (1801212778)](https://github.com/Alimurestart/PHBS_MLF_2019)  
+[Bowen Chen (1801212827)](https://github.com/npuchenbowen/PHBS_MLF_2019) 
+
 
 
 **1.	Research background**
