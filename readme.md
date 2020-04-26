@@ -26,7 +26,7 @@ Since credit card swiping would cause financial losses to the holders and affect
 
 
 
-**3.	Data description**
+**3.[	Data description](https://github.com/npuchenbowen/MLF_Project/blob/master/code/1.%20The%20rat%20clip.ipynb)**
 
 1)	outline
 
