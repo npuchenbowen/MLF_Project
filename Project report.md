@@ -30,6 +30,8 @@ Since credit card swiping would cause financial losses to the holders and affect
 
 The data set used in this project is a group of European cardholders ’credit card transaction data in September 2013 (which has been vectorized). This data set contains transactions that occurred within two days, a total of 284,807, of which 492 belong Piracy transactions, the rest belong to normal transactions, the data set is very unbalanced, piracy transactions only account for 0.172% of all transactions. The data set contains 31 descriptive indicators. The introduction and descriptive statistics of the indicators are shown in the following section.
 
+The dataset comes from:<br>https://www.kaggle.com/mlg-ulb/creditcardfraud 
+
 2)	Variables
 
 The data set contains a total of 31 indicators. The indicator Class is the response variable. If the transaction is a fraudulent transaction, the value is 1. If the transaction is a normal transaction, the value is 0. The indicator Time describes the time when the transaction occurs. Specifically, it is the interval between the time of each transaction and the time of the first transaction; the indicator Amount is the amount of the transaction; the indicators v1, v2-v28 are obtained through PCA. Due to the privacy issue, the meaning of v1-v28 are not available.
@@ -235,6 +237,7 @@ We use 70% of the samples as the training set and 30% of the samples as the test
 
 The result of using logistic regression alone is not particularly good. Although Accuracy is relatively high, other indicators are relatively low, and the recall rate (Recall) is only 0.61, a large number of 1s are misjudged as 0, and it is predicted to shift to a large proportion of 0 for classification. This is mainly because the positive and negative samples in this article are extremely unbalanced, and it is precisely because of the existence of a large number of negative samples that the Accuracy indicator is artificially high, but the actual effect of the model is not good.
 In the following part, we will focus on solving the problem of sample imbalance.
+![](pre-recall curve_LR.png)
 
 (3)	SMOTE oversampling + logistic regression results and evaluation
 
@@ -257,7 +260,7 @@ The effect index of the model can be calculated through the confusion matrix:
 After solving the problem of sample imbalance through SMOTE, ROC-AUC indicators, Recall (recall rate) and Precision (precision rate) have been greatly improved, and the model performs very well.
 As mentioned earlier, thresholds also have an important effect on the results, so let's take a look at how much different thresholds will affect the results. The horizontal axis in the figure below is the Recall recall rate, and the vertical axis is the Precision recall rate. Different colored lines correspond to different thresholds. It can be seen that as the threshold decreases, the recall rate gradually increases, the precision rate gradually decreases, and the model's misjudgment also increases.
 
-![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/8YUQ4vKPKp.vxIKbDZcdtnxcm1INVA0liWIkZBlR98.eXa216W5kgbNzcdEeVgRoWP7A*RZHIbl6cv4j1*HAKg!!/mnull&bo=sAS8AgAAAAARBzo!&rf=photolist&t=5)
+![](pre-recall curve_LR+SMOTE.png)
 
 (Precision-Recall Curve)
 
@@ -360,7 +363,7 @@ Entering the data into Logistic regression, we get Accuracy score of 0.99391407,
 
 And get the following picture:
 
-![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/8YUQ4vKPKp.vxIKbDZcdtuO.9Gsi2xx4jAcdvS2NVnKA9xcEcamNDSpmRNsxqxgXQWxSoIYjDZ7hXCjNsopu9A!!/mnull&bo=ngKRAQAAAAARBzw!&rf=photolist&t=5)
+![](pre-recall curve_AE.png)
 
 (The result of auto-encoder combined with Logistic regression)
 
@@ -371,13 +374,19 @@ Through this image comparison, it is found that the effect obtained by AutoEncod
 
 In order to better identify fraud, we use a two-pronged weapon. We combined SMOTE oversampling with AutoEncoder and Logistic Regression. The results are shown in the following table: 
 
-![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/8YUQ4vKPKp.vxIKbDZcdti0eKy4iGs0wW0NKoRw.JAQsfoYS9v.SGa3w*EytJxeAKaMd61JgkSk8GXEHIO2R4w!!/mnull&bo=egN*AQAAAAARBzc!&rf=photolist&t=5)
+| | precision | recall | f1-score| support|
+| ------------- | ------------- | ------------- | ------------- | ------------- |
+| 0.0 | 0.93 | 0.97 | 0.95 | 85017 |
+| 1.0 | 0.97 | 0.93 | 0.95 | 85572 |
+| accuracy |  |  | 0.95 | 170589 |
+| macro avg | 0.95 | 0.95 | 0.95 | 170589 |
+| weighted avg | 0.95 | 0.95 | 0.95 | 170589 |
 
 (Performance score of our ultra weapon)
 
 From the table, we can see that when we combined the three methods, we got better results in terms of Precision, Recall and F1-score. Under the test sample set containing 30% data, all indicators exceeded 0.99. 
 
-![](http://m.qpic.cn/psc?/V11zaUPV24qAQK/8YUQ4vKPKp.vxIKbDZcdtgzj8mLqqb9KB*xROfALov0Brt8R8gSJyDfpe*o1kUm*RvA28BmH.VAhSwf9YjrVzg!!/mnull&bo=AgWlAgAAAAARB5A!&rf=photolist&t=5)
+![](pre-recall curve_LR+SMOTE+AE.png)
 
 (Precision-Recall Curve of the ultra weapon)
 
