@@ -237,7 +237,7 @@ We use 70% of the samples as the training set and 30% of the samples as the test
 
 The result of using logistic regression alone is not particularly good. Although Accuracy is relatively high, other indicators are relatively low, and the recall rate (Recall) is only 0.61, a large number of 1s are misjudged as 0, and it is predicted to shift to a large proportion of 0 for classification. This is mainly because the positive and negative samples in this article are extremely unbalanced, and it is precisely because of the existence of a large number of negative samples that the Accuracy indicator is artificially high, but the actual effect of the model is not good.
 In the following part, we will focus on solving the problem of sample imbalance.
-![](code/pre-recall curve_LR.png)
+![](code\pre-recall curve_LR.png)
 
 (3)	SMOTE oversampling + logistic regression results and evaluation
 
@@ -260,7 +260,7 @@ The effect index of the model can be calculated through the confusion matrix:
 After solving the problem of sample imbalance through SMOTE, ROC-AUC indicators, Recall (recall rate) and Precision (precision rate) have been greatly improved, and the model performs very well.
 As mentioned earlier, thresholds also have an important effect on the results, so let's take a look at how much different thresholds will affect the results. The horizontal axis in the figure below is the Recall recall rate, and the vertical axis is the Precision recall rate. Different colored lines correspond to different thresholds. It can be seen that as the threshold decreases, the recall rate gradually increases, the precision rate gradually decreases, and the model's misjudgment also increases.
 
-![](code/pre-recall curve_LR+SMOTE.png)
+![](code\pre-recall curve_LR+SMOTE.png)
 
 (Precision-Recall Curve)
 
@@ -363,7 +363,7 @@ Entering the data into Logistic regression, we get Accuracy score of 0.99391407,
 
 And get the following picture:
 
-![](code/pre-recall curve_AE.png)
+![](code\pre-recall curve_AE.png)
 
 (The result of auto-encoder combined with Logistic regression)
 
@@ -386,7 +386,7 @@ In order to better identify fraud, we use a two-pronged weapon. We combined SMOT
 
 From the table, we can see that when we combined the three methods, we got better results in terms of Precision, Recall and F1-score. Under the test sample set containing 30% data, all indicators exceeded 0.99. 
 
-![](code/pre-recall curve_LR+SMOTE+AE.png)
+![](code\pre-recall curve_LR+SMOTE+AE.png)
 
 (Precision-Recall Curve of the ultra weapon)
 
