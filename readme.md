@@ -34,6 +34,8 @@ The data set used in this project is a group of European cardholders ’credit c
 
 The dataset comes from:<br>https://www.kaggle.com/mlg-ulb/creditcardfraud 
 
+(The data file creditcard.csv is 114MB, so it is too big to be uploaded to the repository. So we only upload part of the data: sample.csv into the file folder: data)
+
 2)	Variables
 
 The data set contains a total of 31 indicators. The indicator Class is the response variable. If the transaction is a fraudulent transaction, the value is 1. If the transaction is a normal transaction, the value is 0. The indicator Time describes the time when the transaction occurs. Specifically, it is the interval between the time of each transaction and the time of the first transaction; the indicator Amount is the amount of the transaction; the indicators v1, v2-v28 are obtained through PCA. Due to the privacy issue, the meaning of v1-v28 are not available.
