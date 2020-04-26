@@ -386,7 +386,14 @@ In order to better identify fraud, we use a two-pronged weapon. We combined SMOT
 
 (Performance score of our ultra weapon)
 
-From the table, we can see that when we combined the three methods, we got better results in terms of Precision, Recall and F1-score. Under the test sample set containing 30% data, all indicators are much better than previous models, and the f1-score exceeded 0.95. 
+From the table below, we can see that when we combined the three methods, we got better results in terms of Precision, Recall and F1-score. Under the test sample set containing 30% data, all indicators are much better than previous models, and the f1-score exceeded 0.95. 
+
+|methods | precision | recall | f1-score| 
+| ------------- | ------------- | ------------- | ------------- |
+| LR | 0.89 | 0.61 | 0.72 |
+| SMOTE+LR | 0.97 | 0.90 | 0.94 |
+| AutoEncoder+LR | 0.89 | 0.73 | 0.80 |
+| SMOTE+LR+AutoEncoder | 0.97 | 0.93 | 0.95 |
 
 ![](pre-recallcurve_LR+SMOTE+AE.png)
 
