@@ -272,7 +272,7 @@ This phenomenon is very significant. In actual business, if the threshold is set
 ------------
 
 
-**6.	Rat Poison-AutoEncoder combined with Logistic regression**
+**6.	[Rat Poison-AutoEncoder combined with Logistic regression](https://github.com/npuchenbowen/MLF_Project/blob/master/code/2.%20Rat%20poison.ipynb)**
 
 (1)	Introduction to AutoEncoder
 
@@ -372,7 +372,7 @@ And get the following picture:
 Through this image comparison, it is found that the effect obtained by AutoEncoder + Logistic regression is significantly better than pure Logistic regression, but the effect is not as good as oversampling combined with Logistic regression method (because the area under the curve becomes significantly smaller).
 
 
-**7. Ultra weapon——Two-pronged**
+**7. [Ultra weapon——Two-pronged](https://github.com/npuchenbowen/MLF_Project/blob/master/code/3.Two-pronged--Rat%20clip%2BRat%20poison.ipynb)**
 
 In order to better identify fraud, we use a two-pronged weapon. We combined SMOTE oversampling with AutoEncoder and Logistic Regression. The results are shown in the following table: 
 
