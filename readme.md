@@ -34,7 +34,7 @@ The data set used in this project is a group of European cardholders ’credit c
 
 The dataset comes from:<br>https://www.kaggle.com/mlg-ulb/creditcardfraud 
 
-(The data file creditcard.csv is 114MB, so it is too big to be uploaded to the repository. So we only upload part of the data: sample.csv into the file folder: data)
+(The data file creditcard.csv is 114MB, so it is too big to be uploaded to the repository. So we only upload part of the data: sample_data.csv into the file folder: data)
 
 2)	Variables
 
