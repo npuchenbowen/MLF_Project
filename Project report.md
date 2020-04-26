@@ -384,13 +384,13 @@ In order to better identify fraud, we use a two-pronged weapon. We combined SMOT
 
 (Performance score of our ultra weapon)
 
-From the table, we can see that when we combined the three methods, we got better results in terms of Precision, Recall and F1-score. Under the test sample set containing 30% data, all indicators exceeded 0.99. 
+From the table, we can see that when we combined the three methods, we got better results in terms of Precision, Recall and F1-score. Under the test sample set containing 30% data, all indicators are much better than previous models, and the f1-score exceeded 0.95. 
 
 ![](pre-recallcurve_LR+SMOTE+AE.png)
 
 (Precision-Recall Curve of the ultra weapon)
 
-From the figure, we can see that when the threshold changes from 0.1 to 0.9, the AUC is always above 0.98. It can be seen that our results are very little affected by the threshold and have strong robustness. 
+From the figure, we can see that when the threshold changes from 0.2 to 0.9, the AUC is always above 0.96. It can be seen that our results are very little affected by the threshold and have strong robustness. 
 
 **8. Conclusion and further improvement**
 
